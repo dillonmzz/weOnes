@@ -8,7 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * 产品订单实体
- * @author Zhaozhi
+ * @author Zhaozhi 
  *
  */
 public class GoodsOrder implements Serializable{
