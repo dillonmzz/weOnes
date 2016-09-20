@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.blueline.dao.ProductDao">
+
+	<insert id="save" parameterType="cn.com.blueline.entity.Product">
+		INSERT INTO
+		we_product(id,product_type,sub_type,effdt,status,name,title,product_photo,city,address,introduction,create_user,create_time)
+		VALUES
+		(#{id},#{productType},#{subType},#{effdt},#{status},
+		#{name},#{title},#{productPhoto},#{city},#{address},#{introduction},#{createUser},#{createTime})
+
+	</insert>
+	
+	<insert id="update" parameterType="cn.com.blueline.entity.Product">
+		UPDATE
+		we_product
+		SET sub_type=#{subType},effdt=#{effdt},name=#{name},title=#{title},product_photo=#{productPhoto},introduction=#{introduction},
+		create_user=#{createUser},create_time=#{createTime}
+		where id=#{id} AND create_user = #{createUser}
+	</insert>
+
+	<update id="updateToInvalid">
+		UPDATE
+		we_product
+		SET
+		status='I' WHERE
+		id=#{0} AND create_user = #{1}
+	</update>
+
+
+	<select id="findProductByUser" resultType="Product">
+		SELECT
+		tmg.id,
+		tmg.effdt,
+		tmg.status,
+		tmg.product_type,
+		tmg.sub_type,
+		tmg.name,
+		tmg.title,
+		tmg.product_photo,
+		tmg.city,
+		tmg.address,
+		tmg.create_user,
+		tmg.create_time,
+		tmg.introduction
+		FROM
+		we_product tmg
+		WHERE
+		tmg.effdt = (
+		SELECT
+		max(tmgmax.effdt)
+		FROM
+		we_product tmgmax
+		WHERE
+		tmgmax.id = tmg.id
+		)
+		AND tmg.status = 'A'
+		AND tmg.product_type = #{productType}
+		AND tmg.create_user = #{createUser}
+		ORDER BY tmg.create_time DESC
+	</select>
+	
+	<select id="findProductByUserAndId" resultType="Product">
+		SELECT
+		tmg.id,
+		tmg.product_type,
+		tmg.sub_type,
+		tmg.name,
+		tmg.title,
+		tmg.product_photo,
+		tmg.introduction
+		FROM
+		we_product tmg
+		WHERE
+		tmg.effdt = (
+		SELECT
+		max(tmgmax.effdt)
+		FROM
+		we_product tmgmax
+		WHERE
+		tmgmax.id = tmg.id
+		)
+		AND tmg.status = 'A'
+		AND tmg.product_type = #{productType}
+		AND tmg.create_user = #{createUser}
+		AND tmg.id = #{id}
+		ORDER BY tmg.create_time DESC
+	</select>
+
+</mapper>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.blueline.dao.SystemUserDao">
+
+	<insert id="save" parameterType="SystemUser">
+		INSERT INTO
+		we_system_user(user_name,password,unionid,openid,imgurl,nick_name,real_name,id_card,introduction,mobile,email,
+		province,city,address,is_authentication,role_id,create_time)
+		VALUES
+		(#{userName},#{password},#{unionid},#{openid},#{imgurl},#{nickName},#{realName},#{idCard},#{introduction},#{mobile},#{email},
+		#{province},#{city},#{address},#{isAuthentication},#{roleId},#{createTime})
+	</insert>
+
+	<update id="updateById">
+		UPDATE
+		we_system_user
+		SET
+		imgurl=#{imgurl},nick_name=#{nickName},introduction=#{introduction},
+		mobile=#{mobile},email=#{email},
+		province=#{province},city=#{city},address=#{address}
+		WHERE id=#{id}
+	</update>
+
+
+	<select id="queryByUserName" resultType="SystemUser">
+		SELECT * from we_system_user where user_name=#{userName}
+	</select>
+	
+	<!-- 商家认证 -->
+	<update id="certificate">
+		UPDATE
+		we_system_user
+		SET
+		certificate_img=#{certificateImg}
+		WHERE id=#{id}
+	</update>
+	
+	<!-- 管理员对商家的认证进行审批,通过后将是否认证改为Y -->
+	<update id="changeIsAuthenticatioin">
+		UPDATE
+		we_system_user
+		SET
+		is_authentication='Y'
+		WHERE id=#{id}
+	</update>
+	
+	<!-- 管理员查看已提交认证单未审批的用户列表 -->
+	<select id="queryCertificateUsers" resultType="SystemUser">
+		select * from we_system_user where certificate_img!='' and is_authentication='N'
+	</select>
+
+
+</mapper>

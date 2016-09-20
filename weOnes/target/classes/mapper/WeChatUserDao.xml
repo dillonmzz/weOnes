@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace命名空间,作用就是对sql进行分类化管理,理解sql隔离 
+注意:使用mapper代理方法开发,namespace有特殊重要的作用,namespace等于mapper接口地址 -->
+<mapper namespace="cn.com.blueline.dao.WeChatUserDao">
+
+	<select id="queryById" resultType="WeChatUser" >
+		SELECT *
+		FROM we_wechat_user
+		WHERE openid = #{openid}
+	</select>
+	
+	<insert id="insertWeChatUser" parameterType="cn.com.blueline.entity.WeChatUser">
+		INSERT into we_wechat_user(openid,nickname,sex,country,province,city,headimgurl,language)
+	    VALUES
+		(#{openId},#{nickName},#{sex},#{country},
+		#{province},#{city},#{headImgUrl},#{language})
+	</insert>
+	
+	<select id="queryAll" resultType="WeChatUser">
+		select * from we_wechat_user
+	</select>
+
+</mapper>

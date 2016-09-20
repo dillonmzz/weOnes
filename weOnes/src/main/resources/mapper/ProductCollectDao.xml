@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.blueline.dao.ProductCollectDao">
+
+	<insert id="save" parameterType="ProductCollect">
+		INSERT INTO
+		we_product_collect(time_id,price,subject_id,talent_id,place_id,province,city,district,address,
+		min_people,max_people,state,create_user,create_time)
+		VALUES
+		(#{timeId},#{price},#{subjectId},#{talentId},#{placeId},#{province},#{city},#{district},#{address},
+		#{minPeople},#{maxPeople},#{state},#{createUser},#{createTime})
+
+	</insert>
+	
+	<update id="updateStateById">
+		UPDATE
+		we_product_collect
+		SET
+		state= #{state} WHERE id=#{id}
+	</update>
+
+
+	<select id="findProductCollectByUser" resultType="ProductCollect">
+		SELECT
+		tmg.id,
+		tmg.time_id,
+		FORMAT(tmg.price/100,2) as price,
+		tmg.subject_id,
+		tmg.talent_id,
+		tmg.place_id,
+		tmg.min_people,
+		tmg.max_people,
+		tmg.state,
+		tmg.create_user,
+		tmg.create_time
+		FROM
+		we_product_collect tmg
+		WHERE tmg.create_user = #{createUser}
+	</select>
+	
+	<select id="findProductCollectByState" resultType="ProductCollect">
+		SELECT
+		tmg.id,
+		<!--tmg.time_id,-->
+		(select DISTINCT tm.time_desc from we_time_management tm where tm.status='A' AND tm.id=tmg.time_id) as time_id,
+		TRUNCATE(tmg.price/100,2) as price,
+		<!--tmg.price/100 as price,
+		tmg.subject_id,
+		tmg.talent_id,
+		tmg.place_id,-->
+		(SELECT pro.name from we_product pro where pro.id = tmg.subject_id) as subject_id,
+		(SELECT pro.name from we_product pro where pro.id = tmg.talent_id) as talent_id,
+		(SELECT pro.name from we_product pro where pro.id = tmg.place_id) as place_id,
+		tmg.min_people,
+		tmg.max_people,
+		tmg.state,
+		tmg.create_user,
+		tmg.create_time
+		FROM
+		we_product_collect tmg
+		WHERE tmg.state = #{state}
+	</select>
+	
+	<select id="countByState" resultType="int">
+        select count(1) from we_product_collect where state=2
+    </select>
+    
+    <select id="queryPriceById" resultType="int">
+    	select price from we_product_collect where id= #{id}
+    </select>
+    
+
+</mapper>

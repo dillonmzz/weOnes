@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.blueline.dao.CustomerFeedbackDao">
+
+	<insert id="save" parameterType="CustomerFeedback">
+		INSERT INTO
+		we_feedback(openid,text,contacts,create_time)
+		VALUES
+		(#{openId},#{text},#{contacts},#{createTime})
+	</insert>
+
+	<select id="queryAll" resultType="CustomerFeedback">
+		SELECT * from we_feedback
+	</select>
+
+</mapper>

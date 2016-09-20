@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.blueline.dao.ProductCollectConmmentDao">
+
+	<insert id="save" parameterType="ProductCollectComment">
+		INSERT INTO
+		we_collect_comment(openid,product_collect_id,comment_text,parent_id)
+		VALUES
+		(#{openId},#{productCollectId},#{commentText},#{parentId})
+	</insert>
+
+	<select id="queryCommentByProductCollectId" resultType="ProductCollectComment">
+		SELECT
+		co.openid,
+		co.comment_text,
+		co.create_time,
+		usr.nickname "weChatUser.nickName",
+		usr.headimgurl "weChatUser.headImgUrl"
+		from
+		we_collect_comment co
+		JOIN we_wechat_user usr
+		ON co.openid= usr.openid
+		WHERE co.product_collect_id= #{productCollectId}
+		ORDER BY co.create_time ASC
+	</select>
+
+</mapper>

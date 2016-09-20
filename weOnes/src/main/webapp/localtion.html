@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+	<title>附件商家</title>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QsAmIjFuf0ms4GzuhFIR5M5SMjpoNKhu"></script> 
+    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script> 
+</head>
+<script>
+$(function(){ 
+        navigator.geolocation.getCurrentPosition(translatePoint); //定位 
+      }); 
+      function translatePoint(position){ 
+        var currentLat = position.coords.latitude; 
+        var currentLon = position.coords.longitude; 
+        var gpsPoint = new BMap.Point(currentLon, currentLat); 
+        BMap.Convertor.translate(gpsPoint, 0, initMap); //转换坐标 
+      } 
+      function initMap(point){ 
+        var geoc = new BMap.Geocoder();
+        geoc.getLocation(point, function(rs){
+          var addComp = rs.addressComponents;
+          alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+        })
+      } 
+</script>
+<body>
+	
+</body>
+</html>

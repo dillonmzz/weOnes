@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.blueline.dao.GoodsDao">
+
+	<!-- 查询所有的产品子属性 -->
+	<select id="findAll" resultType="cn.com.blueline.entity.Goods">
+		SELECT * FROM we_goods_attr_key
+	</select>
+	<!--  
+	private Long stateCode;//商品状态码 100:未发布(默认) 200:已发布/上架 300:下架 900:用户删除
+	 -->
+	<insert id="save"  keyProperty="id">
+		INSERT INTO
+		we_goods(category_id,category_child_id,name,title,goods_photos,goods_preview_photo,province,city,district,address,price,
+		is_purchase,purchase_quantity,is_new_goods,is_hot_goods,is_book_goods,introduction,create_user,create_time,state_code)
+		VALUES
+		(#{categoryId},#{categoryChildId},#{name},#{title},#{goodsPhotos},#{goodsPreviewPhoto},#{province},#{city},#{district},#{address},#{price},
+		#{isPurchase},#{purchaseQuantity},#{isNewGoods},#{isHotGoods},#{isBookGoods},#{introduction},#{createUser},#{createTime},#{stateCode})
+	</insert>
+	
+	<insert id="saveGoodsAttrVal" parameterType="cn.com.blueline.entity.GoodsAttrVal">
+		INSERT INTO
+		we_goods_attr_val(attr_key_id,goods_id,symbol,attr_value)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.attrKeyId},#{item.goodsId},#{item.symbol},#{item.attrValue})
+		</foreach>
+	</insert>
+	
+	<insert id="saveGoodsSku" parameterType="cn.com.blueline.entity.GoodsSku">
+		INSERT INTO
+		we_goods_sku(goods_id,attr_symbol_path,old_price,new_price,promotion_price,freight,stock)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator=",">
+			(#{item.goodsId},#{item.attrSymbolPath},#{item.oldPrice},#{item.newPrice},
+			#{item.promotionPrice},#{item.freight},#{item.stock})
+		</foreach>
+	</insert>
+	
+	<select id="search" resultType="Goods" parameterType="java.util.Map">
+		SELECT
+			god.id,
+			god.category_id,
+			god.category_child_id,
+			god.name,
+			god.title,
+			god.goods_preview_photo,
+			god.province,
+			god.city,
+			god.district,
+			god.address,
+			god.price,
+			god.is_book_goods
+		FROM
+		we_goods god
+		WHERE
+			1=1
+		
+		limit #{offset},#{rows}
+	</select>
+	
+	<!--  PC端首页显示TOP产品 -->
+	<select id="indexGoodsInfo" resultType="cn.com.blueline.dto.GoodsInfo">
+		(SELECT 
+			god.id,
+			god.category_id,
+			god.category_child_id,
+			cd.name categoryChildName,
+			god.name,
+			god.title,
+			god.goods_preview_photo,
+			god.province,
+			god.city,
+			god.district,
+			god.address,
+			god.price,
+			god.is_book_goods
+		FROM
+		we_goods god JOIN we_goods_category_child cd ON god.category_child_id=cd.id
+		WHERE
+				god.is_hot_goods='y'
+		AND	god.category_id=100
+		LIMIT 0,8)
+	UNION
+		(SELECT 
+			god.id,
+			god.category_id,
+			god.category_child_id,
+			cd.name categoryChildName,
+			god.name,
+			god.title,
+			god.goods_preview_photo,
+			god.province,
+			god.city,
+			god.district,
+			god.address,
+			god.price,
+			god.is_book_goods
+		FROM
+		we_goods god JOIN we_goods_category_child cd ON god.category_child_id=cd.id
+		WHERE
+				god.is_hot_goods='y'
+		AND	god.category_id=300
+		LIMIT 0,6)
+	UNION
+		(SELECT 
+			god.id,
+			god.category_id,
+			god.category_child_id,
+			cd.name categoryChildName,
+			god.name,
+			god.title,
+			god.goods_preview_photo,
+			god.province,
+			god.city,
+			god.district,
+			god.address,
+			god.price,
+			god.is_book_goods
+		FROM
+		we_goods god JOIN we_goods_category_child cd ON god.category_child_id=cd.id
+		WHERE
+				god.is_hot_goods='y'
+		AND	god.category_id=400
+		LIMIT 0,4)
+	UNION
+		(SELECT 
+			god.id,
+			god.category_id,
+			god.category_child_id,
+			cd.name categoryChildName,
+			god.name,
+			god.title,
+			god.goods_preview_photo,
+			god.province,
+			god.city,
+			god.district,
+			god.address,
+			god.price,
+			god.is_book_goods
+		FROM
+		we_goods god JOIN we_goods_category_child cd ON god.category_child_id=cd.id
+		WHERE
+				god.is_hot_goods='y'
+		AND	god.category_id=500
+		LIMIT 0,6)
+	</select>
+	
+	
+	<!-- 根据ID 查询商品数据 GoodsInfo queryGoodsInfoById(Long id); -->
+	<select id="queryGoodsInfoById" resultType="cn.com.blueline.dto.GoodsInfo">
+		SELECT 
+			god.id,
+			god.category_id,
+			god.category_child_id,
+			cd.name categoryChildName,
+			god.name,
+			god.title,
+			god.goods_preview_photo,
+			god.province,
+			god.city,
+			god.district,
+			god.address,
+			FORMAT(god.price/100,2)  price,
+			god.is_book_goods,
+			god.introduction
+		FROM
+		we_goods god JOIN we_goods_category_child cd ON god.category_child_id=cd.id
+		WHERE god.id =#{id}
+	</select>
+	
+	<!-- 根据商品ID查询商品属性key-->
+	<select id="queryGoodsAttrKeyByGoodsId" resultType="cn.com.blueline.entity.GoodsAttrKey">
+	SELECT DISTINCT
+		attr.attr_key_id,
+		ke.attr_name
+	FROM
+		we_goods_attr_val attr LEFT JOIN we_goods_attr_key ke on attr.attr_key_id=ke.attr_key_id
+	WHERE
+		attr.goods_id = #{id};
+	</select>
+	
+	<!-- 根据商品ID和商品属性key查询商品属性 -->
+	<select id="queryGoodsSkuByGoodsIdWithAttrKeyId" resultType="cn.com.blueline.entity.GoodsAttrVal">
+		SELECT
+			val.attr_key_id,
+			val.goods_id,
+			val.symbol,
+			val.attr_value
+		FROM
+			we_goods_attr_val val
+		WHERE
+			val.goods_id = #{id}
+		AND val.attr_key_id = #{attrKeyId}
+	</select>
+	
+	
+	<!--根据symbol和goodsId 查询sku价格  -->
+	<select id="findSkuPriceByGoodsAndSymbol" resultType="java.math.BigDecimal">
+		select FORMAT(sku.new_price/100,2)  price 
+		from 
+		we_goods_sku sku 
+		where sku.goods_id= #{goodsId} and sku.attr_symbol_path = #{symbol}
+	</select>
+	 
+	 
+	<!-- 查询数据库中已发布的城市列表-->
+	<select id="findExistCity" resultType="String">
+		select DISTINCT(city) FROM we_goods where city!='';
+	</select>
+	
+	
+	
+
+</mapper>

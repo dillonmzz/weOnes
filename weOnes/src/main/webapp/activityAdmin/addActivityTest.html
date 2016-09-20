@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="timemgr/save" method="post">
+	title:<input type="text" name="title">
+	minPeople:<input type="text" name="minPeople"><br>
+	<hr>
+	日期类型:
+	<select name="timeType">
+		<option value="sin">单一</option>
+		<option value="con">连续</option>
+	</select>
+	<hr>
+	<input type="hidden" name="section" value="1">
+	startDate:<input type="text" name="startDate">
+	endDate:<input type="text" name="endDate"><br>
+	startTime:<input type="text" name="startTime">
+	endTime:<input type="text" name="endTime"><br>
+	<hr>
+	<input type="hidden" name="section" value="2">
+	startDate:<input type="text" name="startDate">
+	endDate:<input type="text" name="endDate"><br>
+	startTime:<input type="text" name="startTime">
+	endTime:<input type="text" name="endTime"><br>
+	<input type="submit" >
+</form>
+
+</body>
+</html>

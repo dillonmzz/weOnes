@@ -1,0 +1,162 @@
+@charset "utf-8";
+/* CSS Document */
+a, abbr, address, article, aside, audio, b, blockquote, body, caption, cite, code, dd, del, dfn, dialog, div, dl, dt, em, fieldset, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, sup, tfoot, th, thead, time, tr, ul, var, video {
+    border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-weight: normal;
+    background: 0 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    line-height: 1;
+    height: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-size-adjust:none;
+    background-color: #f0eff5;
+    font: 16px/1.25 "微软雅黑";
+    font-weight: bold;
+    letter-spacing: -0.05em;
+
+}
+.bgWhite{
+    background: #fff;
+}
+html{
+    -webkit-text-size-adjust: none;
+}
+
+body * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:微软雅黑;
+}
+
+a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    cursor:pointer;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: 0 0;
+    color: #333
+}
+
+
+
+input,button,select{
+    -webkit-appearance:none;
+    vertical-align: middle;
+}
+
+
+a {
+    opacity:1;
+    transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;	/* Firefox 4 */
+    -webkit-transition: opacity 0.3s;	/* Safari 和 Chrome */
+    -o-transition: opacity 0.3s;	/* Opera */
+}
+a:active {opacity:0.6;}
+
+button {
+    opacity:1;
+    transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;	/* Firefox 4 */
+    -webkit-transition: opacity 0.3s;	/* Safari 和 Chrome */
+    -o-transition: opacity 0.3s;	/* Opera */
+}
+button:active {opacity:0.6;}
+
+input.btn {
+    opacity:1;
+    transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;	/* Firefox 4 */
+    -webkit-transition: opacity 0.3s;	/* Safari 和 Chrome */
+    -o-transition: opacity 0.3s;	/* Opera */
+}
+input.btn:active {opacity:0.6;}
+
+
+
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+    font-size: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+th, td, caption {
+    vertical-align: top;
+    text-align: left
+}
+
+sub,sup{
+    font-size: 10px;
+}
+@keyframes loadingimg
+{
+    0% { transform:rotate(0deg);}
+    100% {transform:rotate(360deg);}
+}
+@-webkit-keyframes loadingimg
+{
+    0% { -webkit-transform:rotate(0deg);}
+    100% {-webkit-transform:rotate(360deg);}
+}
+.clear {width:0px; height:0px; font-size:0; clear:both;}
+ul,li {list-style:none;}
+#infscr-loading{ padding:7px 0; color:#999;}
+#infscr-loading img{ margin:5px 0; animation:2s loadingimg linear infinite; -webkit-animation:2s loadingimg linear infinite; width:28px;}
+#cnzz_stat_icon_1255744006{ display:none;}
+#updown{
+    border:1px solid rgba(39,38,54,.6);
+    background:rgba(255,255,255,.6);
+    position: fixed;
+    bottom: 70px;
+    right: 13px;
+    display: none; border-radius:50%; text-align:center; line-height:50px;
+}
+#updown span{
+    cursor:pointer;
+    width:43px;
+    height:43px;
+    display:block;
+}
+#updown .up{
+    opacity:0.6;
+    background:url(images/updown.png) center no-repeat;
+    background-size:26px;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    display: block
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size: 100%;
+    font-weight: 400;
+    font-family: inherit
+}
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+section:after, .section:after {
+    clear: both;
+}

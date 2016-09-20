@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.com.blueline.dao.WxPayOrderDao">
+
+	<insert id="saveWxPayOrder" parameterType="cn.com.blueline.entity.WxPayOrder">
+		INSERT into
+		we_user_order(transaction_id,out_trade_no,activity_id,openid,user_phone,user_name,user_addr,
+		quantity,total_fee,state,time_end,remark)
+		VALUES
+		(#{transactionId},#{outTradeNo},#{activityId},#{openId},#{userPhone},#{userName},#{userAddr},
+		#{quantity},#{totalFee},#{state},#{timeEnd},#{remark})
+	</insert>
+
+	<select id="queryByOutTradeNo" resultType="WxPayOrder">
+		SELECT * FROM
+		we_user_order
+		WHERE
+		out_trade_no = #{outTradeNo}
+	</select>
+
+	<update id="updateByOutTradeNo">
+		UPDATE
+		we_user_order
+		<!-- SET transaction_id=#{transactionId,jdbcType=VARCHAR},state=#(state,jdbcType=INTEGER) 
+			WHERE out_trade_no = #{outTradeNo,jdbcType=VARCHAR} -->
+		SET transaction_id=#{transactionId,jdbcType=VARCHAR} ,state=1 WHERE
+		out_trade_no = #{outTradeNo,jdbcType=VARCHAR}
+	</update>
+
+	<select id="queryOrdersByOpenId" resultType="WxPayOrder">
+		SELECT
+		od.out_trade_no,
+		od.transaction_id,
+		od.total_fee,
+		od.state,
+		od.activity_id,
+		ac.title "activity.title",
+		ac.thumbnails "activity.thumbnails",
+		ac.start_time "activity.startTime"
+		FROM
+		we_user_order od
+		JOIN we_activity ac on od.activity_id=ac.activity_id and
+		od.openid=#{openId} and od.state!=9
+		ORDER BY
+		od.time_end DESC
+	</select>
+	
+	<select id="queryOrders" resultType="WxPayOrder">
+		SELECT
+		od.out_trade_no,
+		od.transaction_id,
+		od.user_phone,
+		od.quantity,
+		od.total_fee,
+		od.state,
+		od.activity_id,
+		ac.title "activity.title",
+		od.time_end
+		FROM
+		we_user_order od
+		JOIN we_activity ac on od.activity_id=ac.activity_id and od.state!=9
+		ORDER BY
+		od.time_end DESC
+	</select>
+	
+	<delete id="deleteOrderByOpenId">
+		<!-- 删除订单操作,将状态改为9 表示用户已经删除
+		DELETE FROM we_user_order WHERE transaction_id = #{transactionId} AND openid = #{openId} -->
+		UPDATE we_user_order SET state=9 WHERE transaction_id = #{transactionId} AND openid = #{openId}
+	</delete>
+
+</mapper>

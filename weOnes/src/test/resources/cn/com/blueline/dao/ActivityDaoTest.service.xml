@@ -1,0 +1,3 @@
+<service-components>
+  <service-component type="cn.com.blueline.dao.ActivityDaoTest" bean="activityDaoTest"/>
+</service-components>

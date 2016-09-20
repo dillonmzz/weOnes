@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.blueline.dao.ProductCollectOrderDao">
+
+	<insert id="saveBook" parameterType="ProductCollectOrder">
+		INSERT INTO
+		we_collect_order(out_trade_no,collect_id,time_id,section,openid,user_name,user_phone,user_addr,price,quantity,
+		total_fee,state,create_time,remark,transaction_id)
+		VALUES
+		(#{outTradeNo},#{collectId},#{timeId},#{section},#{openId},#{userName},#{userPhone},#{userAddr},#{price},#{quantity},
+		#{totalFee},#{state},#{createTime},#{remark},#{transactionId})
+
+	</insert>
+	
+	<update id="payOrder" >
+		UPDATE
+		we_collect_order
+		SET 
+		state=1, pay_time =now(), transaction_id = #{transactionId}
+		WHERE out_trade_no = #{outTradeNo}  and openid= #{openId}
+	</update>
+	
+	<select id="queryOrderById" resultType="ProductCollectOrder">
+		select out_trade_no,collect_id,time_id,section,openid,user_phone,
+		TRUNCATE (price/100,2)
+		price,quantity,TRUNCATE(total_fee/100,2),create_time,pay_time,transaction_id
+		from we_collect_order
+		where out_trade_no = #{outTradeNo}
+	</select>
+	
+	
+	<select id="queryOrderByOpenId" resultType="ProductCollectOrder">
+		SELECT * FROM we_collect_order WHERE   openid = #{openId} AND state!=9
+	</select>
+	
+	<!-- 根据商家用户查询订单 -->
+	<select id="queryOrderByUser" resultType="ProductCollectOrder">
+		SELECT *  from we_collect_order orders 
+		WHERE EXISTS(
+		SELECT col.id FROM `we_product_collect` col where col.create_user= #{createUser} AND orders.collect_id=col.id)
+		AND orders.state!=9
+	</select>
+	
+	
+	
+	<update id="updatetoInvalid" >
+		UPDATE
+		we_collect_order
+		SET 
+		state=9
+		WHERE out_trade_no = #{outTradeNo}  and openid= #{openId}
+	</update>
+
+</mapper>

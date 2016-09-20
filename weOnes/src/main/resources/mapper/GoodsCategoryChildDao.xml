@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.blueline.dao.GoodsCategoryChildDao">
+
+	
+	<select id="findByCategoryId" resultType="cn.com.blueline.entity.GoodsCategoryChild">
+		SELECT * from we_goods_category_child where parent_id=#{categoryId}
+	</select>
+	
+	<select id="findAll" resultType="cn.com.blueline.entity.GoodsCategoryChild">
+		SELECT * from we_goods_category_child
+	</select>
+
+</mapper>

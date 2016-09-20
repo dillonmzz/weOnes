@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.blueline.dao.TimeScheduleDao">
+
+	<insert id="save" parameterType="cn.com.blueline.entity.TimeSchedule">
+		INSERT INTO
+		we_time_management(id,effdt,status,time_desc,time_typ,section,start_date,end_date,start_time,end_time,create_user,create_time)
+		VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.id},#{item.effdt},#{item.status},#{item.timeDesc},
+			#{item.timeType},#{item.section},#{item.startDate},#{item.endDate},#{item.startTime},#{item.endTime},#{item.createUser},#{item.createTime})
+		</foreach>
+
+	</insert>
+
+	<update id="updateToInvalid">
+		UPDATE
+		we_time_management
+		SET
+		status=#{status} WHERE
+		id=#{id}
+	</update>
+
+
+	<select id="queryScheduleByUser" resultType="TimeSchedule">
+		SELECT
+		tmg.id,
+		tmg.effdt,
+		tmg.time_desc,
+		tmg.status,
+		tmg.time_typ timeType,
+		tmg.section
+		as section,
+		tmg.start_date,
+		tmg.end_date,
+		tmg.start_time,
+		tmg.end_time,
+		tmg.create_user
+		FROM
+		we_time_management tmg
+		WHERE
+		tmg.effdt = (
+		SELECT
+		max(tmgmax.effdt)
+		FROM
+		we_time_management tmgmax
+		WHERE
+		tmgmax.id = tmg.id
+		)
+		AND tmg. STATUS = 'A'
+		AND tmg.create_user = #{createUser} ORDER BY
+		create_time DESC
+	</select>
+
+	<select id="findTimeScheduleByTimeType" resultType="TimeSchedule">
+		SELECT
+		tmg.id,
+		tmg.effdt,
+		tmg.status,
+		tmg.time_typ timeType,
+		tmg.section,
+		tmg.time_desc,
+		tmg.start_date,
+		tmg.end_date,
+		tmg.start_time,
+		tmg.end_time,
+		tmg.create_user
+		FROM
+		we_time_management tmg
+		WHERE
+		tmg.effdt =
+		(
+		SELECT
+		max(tmgmax.effdt)
+		FROM
+		we_time_management tmgmax
+		WHERE
+		tmgmax.id =
+		tmg.id
+		)
+		AND tmg.STATUS = 'A'
+		AND tmg.time_typ = #{timeType}
+		AND
+		tmg.create_user = #{createUser}
+		GROUP BY tmg.id
+		ORDER BY tmg.create_time DESC
+	</select>
+
+	<!-- Map<Integer, String> queryTimeByDate(@Param("id") String id,@Param("startDate") 
+		String startDate); -->
+	<select id="queryTimeByDate" resultType="TimeSchedule">
+		SELECT
+		tmg.id,
+		tmg.section,
+		CONCAT_WS(
+		'-',
+		tmg.start_date,
+		end_date,
+		tmg.start_time,
+		tmg.end_time
+		) AS timeDesc
+		FROM
+		we_time_management tmg
+		WHERE
+		tmg.STATUS = 'A'
+		AND tmg.id = #{id}
+		<if test="startDate !=null and startDate!='' ">
+		<![CDATA[
+	        AND tmg.start_date <= #{startDate}
+			AND tmg.end_date >=  #{startDate}
+		]]>
+    	</if>  
+		
+	</select>
+
+</mapper>

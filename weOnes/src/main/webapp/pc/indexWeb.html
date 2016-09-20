@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        @charset "UTF-8";
+        [ng\:cloak],
+        [tjb-cloak],
+        [data-tjb-cloak],
+        [x-tjb-cloak],
+        .tjb-cloak,
+        .x-tjb-cloak,
+        .tjb-hide {
+            display: none !important;
+        }
+        
+        ng\:form {
+            display: block;
+        }
+        
+        .tjb-animate-block-transitions {
+            transition: 0s all !important;
+            -webkit-transition: 0s all !important;
+        }
+        
+        .tjb-hide-add-active,
+        .tjb-hide-remove {
+            display: block !important;
+        }
+    </style>
+    <title class="tjb-binding">首页</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="baidu-site-verification" content="">
+    <meta charset="UTF-8">
+
+    <!--css-->
+    <link href="css/css_indexWeb/hobbitweb.css" rel="stylesheet" type="text/css">
+    <link href="css/css_indexWeb/components.css" rel="stylesheet" type="text/css">
+    <link href="css/css_indexWeb/appweb.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/css_indexWeb/my_add.css" />
+
+</head>
+
+
+<body class="page index-page tjb-scope" style="visibility: visible;">
+   
+    <div class="index">
+       
+        <div class="navbar">
+            <div class="container">
+                <div class="brand">
+                    <a href="#">
+                        <i class="iconfont icon-fanbailogo"></i>
+                        <i class="iconfont icon-brandname brand-name"></i>
+                    </a>
+                    <a class="call400">扫码关注</a>
+                </div>
+                <span class="navbar-right">
+					<div class="navbar-item nick-name tjb-scope">
+                        <a class="tjb-isolate-scope">用户登录</a>
+                    </div>
+					<a class="navbar-item" href="#">商家登录</a>
+				</span>
+            </div>
+        </div>
+
+        <!--    划过后出现二维码展示-->
+        <div class="md_hover_ewm">
+            <img src="images/wo.jpg" alt="weones二维码" />
+        </div>
+
+        <div class="header">
+            <span class="title"></span>
+
+            <div class="searcher-banner">
+                <div class="searcher">
+                    <div class="searcher-input searcher-city">
+                        <div class="ui-select tjb-scope tjb-isolate-scope tjb-pristine tjb-valid">北京</div>
+                        <div class="lz-menu lz-select-menu">
+                            <div class="item">上海</div>
+                            <div class="item">深圳</div>
+                            <div class="item">广州</div>
+                            <div class="item">杭州</div>
+                        </div>
+
+                    </div>
+                    <div class="searcher-input searcher-functionality-v2 tjb-isolate-scope">
+                        <label class="tjb-scope tjb-binding">活动类型</label>
+
+                        <div class="xiaokuai"></div>
+                        <div class="fun-content" style="display:none">
+                            <div class="fun-content-item tjb-scope">
+                                <b class="tjb-binding1">主题活动</b>
+                                <dl>
+                                    <dd class="tjb-binding tjb-scope">全部</dd>
+                                    <dd class="tjb-binding tjb-scope">户外</dd>
+                                    <dd class="tjb-binding tjb-scope">沙龙</dd>
+                                    <dd class="tjb-binding tjb-scope">手工DIY</dd>
+                                    <dd class="tjb-binding tjb-scope">亲子</dd>
+                                    <dd class="tjb-binding tjb-scope">聚会</dd>
+                                    <dd class="tjb-binding tjb-scope">团队活动</dd>
+                                    <dd class="tjb-binding tjb-scope">赛事演出</dd>
+                                </dl>
+                            </div>
+                            <div class="fun-content-item tjb-scope">
+                                <b class="tjb-binding">团建活动</b>
+                                <dl>
+                                    <dd class="tjb-binding tjb-scope">全部</dd>
+                                    <dd class="tjb-binding tjb-scope">企业团建</dd>
+                                    <dd class="tjb-binding tjb-scope">个人团建</dd>
+                                </dl>
+                            </div>
+                            <div class="fun-content-item tjb-scope">
+                                <b class="tjb-binding">场地</b>
+                                <dl>
+                                    <dd class="tjb-binding tjb-scope">全部</dd>
+                                    <dd class="tjb-binding tjb-scope">商务会议</dd>
+                                    <dd class="tjb-binding tjb-scope">企业年会</dd>
+                                    <dd class="tjb-binding tjb-scope">培训讲座</dd>
+                                    <dd class="tjb-binding tjb-scope">宴会</dd>
+                                    <dd class="tjb-binding tjb-scope">展会</dd>
+                                    <dd class="tjb-binding tjb-scope">发布会</dd>
+                                    <dd class="tjb-binding tjb-scope">私人聚会</dd>
+                                </dl>
+                            </div>
+                            <div class="fun-content-item tjb-scope">
+                                <b class="tjb-binding">达人</b>
+                                <dl>
+                                    <dd class="tjb-binding tjb-scope">全部</dd>
+                                    <dd class="tjb-binding tjb-scope">美食</dd>
+                                    <dd class="tjb-binding tjb-scope">音乐</dd>
+                                    <dd class="tjb-binding tjb-scope">运动</dd>
+                                    <dd class="tjb-binding tjb-scope">形象</dd>
+                                    <dd class="tjb-binding tjb-scope">摄影</dd>
+                                    <dd class="tjb-binding tjb-scope">健身</dd>
+                                    <dd class="tjb-binding tjb-scope">舞蹈</dd>
+                                    <dd class="tjb-binding tjb-scope">手工</dd>
+                                    <dd class="tjb-binding tjb-scope">美术</dd>
+                                    <dd class="tjb-binding tjb-scope">少儿</dd>
+                                    <dd class="tjb-binding tjb-scope">心理</dd>
+                                    <dd class="tjb-binding tjb-scope">书法</dd>
+                                    <dd class="tjb-binding tjb-scope">法律</dd>
+                                </dl>
+                            </div>
+                            <div class="fun-content-item tjb-scope">
+                                <b class="tjb-binding">福利</b>
+                                <dl>
+                                    <dd class="tjb-binding tjb-scope">全部</dd>
+                                    <dd class="tjb-binding tjb-scope">礼包</dd>
+                                    <dd class="tjb-binding tjb-scope">礼券</dd>
+                                    <dd class="tjb-binding tjb-scope">卡票</dd>
+                                    <dd class="tjb-binding tjb-scope">积分</dd>
+                                    <dd class="tjb-binding tjb-scope">限时购买</dd>
+                                    <dd class="tjb-binding tjb-scope">优惠折扣</dd>
+                                    <dd class="tjb-binding tjb-scope">热销商品</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="searcher-input searcher-q">
+                        <input type="text" id="searchQ" placeholder="地标、名称等" class="tjb-pristine tjb-valid">
+                    </div>
+                    <a href="#" class="searcher-button search tjb-scope">
+                        <i class="iconfont icon-search"></i>搜索
+                    </a>
+                </div>
+                <!-- <span class="or">或</span>
+                <a href="#" class="searcher-button inquery tjb-scope">
+                    <i class="iconfont icon-send"></i>发布需求
+                </a> -->
+            </div>
+        </div>
+
+        <div class="func-nav tjb-scope">
+            <div class="fn-top">
+                <a class="fn-top-item tjb-scope" href="#">
+                    <img src="images/%E6%9C%8B%E5%8F%8B%E8%81%9A%E4%BC%9A_03.png">
+                    <b class="tjb-binding">主题活动</b>
+                </a>
+                <a class="fn-top-item tjb-scope" href="#">
+                    <img src="images/%E5%95%86%E5%8A%A1%E4%BC%9A%E8%AE%AE_03.png">
+                    <b class="tjb-binding">团建活动</b>
+                </a>
+                <a class="fn-top-item tjb-scope" href="#">
+                    <img src="images/%E5%9F%B9%E8%AE%AD_03.png">
+                    <b class="tjb-binding">场地</b>
+                </a>
+                <a class="fn-top-item tjb-scope" href="#">
+                    <img src="images/%E5%9B%A2%E9%98%9F%E6%8B%93%E5%B1%95_03.png">
+                    <b class="tjb-binding">达人</b>
+                </a>
+                <a class="fn-top-item tjb-scope" href="#">
+                    <img src="images/%E6%99%9A%E4%BC%9A%E5%B9%B4%E4%BC%9A_03.png">
+                    <b class="tjb-binding">福利</b>
+                </a>
+
+
+                <div class="fn-top-item fn-more-btn">
+                    <h3 class="tjb-binding">32</h3>
+                    <b>全部类型</b>
+                    <span id="fn-more-btn-words">点击展开</span>
+
+                    <div class="shelte"></div>
+                </div>
+            </div>
+            <div class="fn-more">
+                <div class="more-block">
+                    <b>主题活动</b>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    户外
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    沙龙
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    手工DIY
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    亲子
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    聚会
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    团队活动
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    赛事演出
+                </a>
+                </div>
+
+                <div class="more-block tjb-scope">
+                    <b>团队活动</b>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    企业团建
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    个人团建
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    商务会议
+                </a>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="more-block tjb-scope">
+                    <b>场地</b>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    商务会议
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    企业年会
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    培训讲座
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    宴会
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    展会
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    发布会
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    私人聚会
+                </a>
+                </div>
+
+                <div class="more-block tjb-scope">
+                    <b>达人</b>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    美食
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    音乐
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    运动
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    形象
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    摄影
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    健身
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    舞蹈
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    手工
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    美术
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    少儿
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    心理
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    书法
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    法律
+                </a>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="more-block tjb-scope">
+                    <b>福利套餐</b>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    礼包
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    礼券
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    卡票
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    积分
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    限时购买
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    优惠折扣
+                </a>
+                    <a class="more-item tjb-scope tjb-binding" href="#">
+                    热销商品
+                </a>
+                </div>
+            </div>
+        </div>
+
+        <!---------------------------------------------------------------精彩活动-->
+        <div class="promotions">
+            <div class="container">
+                <div class="title tjb-scope">精彩活动推荐</div>
+                
+                    <div class="item index_activity_8">
+                        <a class="tjb-scope" href="" target="_blank">
+                            <span class="pro-image ui-frame tjb-isolate-scope">
+                                <img alt="推荐图片1"
+                                     src=""
+                                     style="opacity: 1; height: 245.283px; width: 320px; left: 0px; top: -22.6415px; position: absolute;">
+                            </span>
+                            <span class="mask"></span>
+                            <span class="title tjb-binding">
+                                <span class="index_activity_title_8"></span>
+                                <span class="sub-title tjb-binding index_activity_introduction_8"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="item index_activity_8">
+                        <a class="tjb-scope" href="">
+                            <span class="pro-image ui-frame tjb-isolate-scope">
+                                <img alt="推荐图片2" src=""
+                                     style="opacity: 1; height: 213.009px; width: 320px; left: 0px; top: -6.50456px; position: absolute;">
+                            </span>
+                            <span class="mask"></span>
+                            <span class="title tjb-binding">
+                                <span class="index_activity_title_8"></span>
+                                <span class="sub-title tjb-binding index_activity_introduction_8"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="item index_activity_8">
+                        <a class="tjb-scope" href="">
+                            <span class="pro-image ui-frame tjb-isolate-scope">
+                                <img alt="推荐图片3"
+                                     src=""
+                                     style="opacity: 1; height: 264.09px; width: 320px; left: 0px; top: -32.0451px; position: absolute;">
+                            </span>
+                            <span class="mask"></span>
+                            <span class="title tjb-binding">
+                                <span class="index_activity_title_8"></span>
+                                <span class="sub-title tjb-binding index_activity_introduction_8"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="item double index_activity_8">
+                        <a class="tjb-scope" href="">
+                            <span class="pro-image ui-frame tjb-isolate-scope">
+                                <img alt="推荐图片4"
+                                     src=""
+                                     style="opacity: 1; height: 409.375px; width: 655px; left: 0px; top: -104.688px; position: absolute;">
+                            </span>
+                            <span class="mask"></span>
+                            <span class="title tjb-binding">
+                                <span class="index_activity_title_8"></span>
+                                <span class="sub-title tjb-binding index_activity_introduction_8"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="item index_activity_8">
+                        <a class="tjb-scope" href="">
+                            <span class="pro-image ui-frame tjb-isolate-scope">
+                                <img alt="推荐图片5"
+                                     src=""
+                                     style="opacity: 1; height: 245.283px; width: 320px; left: 0px; top: -22.6415px; position: absolute;">
+                            </span>
+                            <span class="mask"></span>
+                            <span class="title tjb-binding">
+                                <span class="index_activity_title_8"></span>
+                                <span class="sub-title tjb-binding index_activity_introduction_8"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="item index_activity_8">
+                        <a class="tjb-scope" href="">
+                            <span class="pro-image ui-frame tjb-isolate-scope">
+                                <img alt="推荐图片6" src=""
+                                     style="opacity: 1; height: 263.961px; width: 320px; left: 0px; top: -31.9807px; position: absolute;">
+                            </span>
+                            <span class="mask"></span>
+                            <span class="title tjb-binding">
+                                <span class="index_activity_title_8"></span>
+                                <span class="sub-title tjb-binding index_activity_introduction_8"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="item index_activity_8">
+                        <a class="tjb-scope" href="">
+                            <span class="pro-image ui-frame tjb-isolate-scope">
+                                <img alt="推荐图片7" src=""
+                                     style="opacity: 1; height: 264.151px; width: 320px; left: 0px; top: -32.0755px; position: absolute;">
+                            </span>
+                            <span class="mask"></span>
+                            <span class="title tjb-binding">
+                                <span class="index_activity_title_8"></span>
+                                <span class="sub-title tjb-binding index_activity_introduction_8"></span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="item index_activity_8">
+                        <a class="tjb-scope" href="">
+                            <span class="pro-image ui-frame tjb-isolate-scope">
+                                <img alt="推荐图片8" src=""
+                                     style="opacity: 1; height: 263.961px; width: 320px; left: 0px; top: -31.9807px; position: absolute;">
+                            </span>
+                            <span class="mask"></span>
+                            <span class="title tjb-binding">
+                                <span class="index_activity_title_8"></span>
+                                <span class="sub-title tjb-binding index_activity_introduction_8"></span>
+                            </span>
+                        </a>
+                    </div>
+            </div>
+        </div>
+
+        <!----------------------------------------------------------------场地-->
+        <div class="promotions o_preferential">
+            <div class="container o_container">
+                <div class="title tjb-scope">我的地盘</div>
+                
+                <div class="item index_space_6">
+                    <a class="tjb-scope" href="">
+                        <span class="pro-image ui-frame tjb-isolate-scope">
+							<img alt="场地图片1"
+                                 src=""
+                                 style="opacity: 1; height: 245.283px; width: 320px; left: 0px; top: -22.6415px; position: absolute;">
+						</span>
+                        <span class="mask"></span>
+                        <span class="title tjb-binding index_space_title_6"></span>
+                        <span class="price tjb-binding">
+                            <span class="price-tip tjb-binding index_space_area_6"></span>
+                        </span>
+                    </a>
+                </div>
+                <div class="item index_space_6">
+                    <a class="tjb-scope" href="">
+                        <span class="pro-image ui-frame tjb-isolate-scope">
+							<img alt="场地图片2" src=""
+                                 style="opacity: 1; height: 213.009px; width: 320px; left: 0px; top: -6.50456px; position: absolute;">
+						</span>
+                        <span class="mask"></span>
+                        <span class="title tjb-binding index_space_title_6"></span>
+                        <span class="price tjb-binding">
+                            <span class="price-tip tjb-binding index_space_area_6"></span>
+                        </span>
+                    </a>
+                </div>
+                <div class="item index_space_6">
+                    <a class="tjb-scope" href="">
+                        <span class="pro-image ui-frame tjb-isolate-scope">
+							<img alt="场地图片3"
+                                 src=""
+                                 style="opacity: 1; height: 264.09px; width: 320px; left: 0px; top: -32.0451px; position: absolute;">
+						</span>
+                        <span class="mask"></span>
+                        <span class="title tjb-binding index_space_title_6"></span>
+                        <span class="price tjb-binding">
+                            <span class="price-tip tjb-binding index_space_area_6"></span>
+                        </span>
+                    </a>
+                </div>
+                <div class="item index_space_6">
+                    <a class="tjb-scope" href="">
+                        <span class="pro-image ui-frame tjb-isolate-scope">
+							<img alt="场地图片4" src=""
+                                 style="opacity: 1; height: 263.961px; width: 320px; left: 0px; top: -31.9807px; position: absolute;">
+						</span>
+                        <span class="mask"></span>
+                        <span class="title tjb-binding index_space_title_6"></span>
+                        <span class="price tjb-binding">
+                            <span class="price-tip tjb-binding index_space_area_6"></span>
+                        </span>
+                    </a>
+                </div>
+                <div class="item index_space_6">
+                    <a class="tjb-scope" href="">
+                        <span class="pro-image ui-frame tjb-isolate-scope">
+							<img alt="场地图片5" src=""
+                                 style="opacity: 1; height: 264.151px; width: 320px; left: 0px; top: -32.0755px; position: absolute;">
+						</span>
+                        <span class="mask"></span>
+                        <span class="title tjb-binding index_space_title_6"></span>
+                        <span class="price tjb-binding">
+                            <span class="price-tip tjb-binding index_space_area_6"></span>
+                        </span>
+                    </a>
+                </div>
+                <div class="item index_space_6">
+                    <a class="tjb-scope" href="#">
+                        <span class="pro-image ui-frame tjb-isolate-scope">
+							<img alt="场地图片6" src=""
+                                 style="opacity: 1; height: 263.961px; width: 320px; left: 0px; top: -31.9807px; position: absolute;">
+						</span>
+                        <span class="mask"></span>
+                        <span class="title tjb-binding index_space_title_6"></span>
+                        <span class="price tjb-binding">
+                            <span class="price-tip tjb-binding index_space_area_6"></span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-----------------------------------------------------------------达人-->
+        <div class="user-story ng-scope o_master" ng-if="select.city == '北京'">
+            <div class="title">我带你High吧</div>
+            <div class="swiper-container container o_master_2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <ul class="lz-list">
+                           
+                            <li class="lz-list-tutor lz-list-sm index_people_4">
+                                <a class="lz-list-item aTutor"  href="">
+<!--                                   背景-->
+                                    <img src="images/people_bg_1.png">
+<!--                                       圆头像-->
+                                        <img class="new_head" src="" alt="达人1">
+
+                                    <div class="lz-list-cover"></div>
+                                    <div class="lz-tutor-info">
+                                        <h3 class="index_people_name_4"></h3>
+                                        <h4 class="index_people_tag_4"></h4>
+
+                                        <p class="lz-topic-info indexTopicInfo">
+                                            <i>『 </i>
+                                            <span class="index_people_content_4">
+                                            </span>
+                                            <i> 』</i>
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="lz-list-tutor lz-list-sm index_people_4">
+                                <a class="lz-list-item aTutor"  href="">
+                                    <img src="images/people_bg_1.png">
+                                        <img class="new_head" src="" alt="达人2">
+
+                                    <div class="lz-list-cover"></div>
+                                    <div class="lz-tutor-info">
+                                        <h3 class="index_people_name_4"></h3>
+                                        <h4 class="index_people_tag_4"></h4>
+                                        
+                                        <p class="lz-topic-info indexTopicInfo">
+                                            <i>『 </i>
+                                            <span class="index_people_content_4">
+                                            </span>
+                                            <i> 』</i>
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="lz-list-tutor lz-list-sm index_people_4">
+                                <a class="lz-list-item aTutor" data-received="" data-market="" href="#">
+                                    <img src="images/people_bg_1.png">
+                                        <img class="new_head" src="" alt="达人3">
+
+                                    <div class="lz-list-cover"></div>
+                                    <div class="lz-tutor-info">
+                                        <h3 class="index_people_name_4"></h3>
+                                        <h4 class="index_people_tag_4"></h4>
+                                        
+                                        <p class="lz-topic-info indexTopicInfo">
+                                            <i>『 </i>
+                                            <span class="index_people_content_4">
+                                            </span>
+                                            <i> 』</i>
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="lz-list-tutor lz-list-sm index_people_4">
+                                <a class="lz-list-item aTutor"  href="">
+                                    <img src="images/people_bg_1.png">
+                                        <img class="new_head" src="" alt="达人4">
+
+                                    <div class="lz-list-cover"></div>
+                                    <div class="lz-tutor-info">
+                                        <h3 class="index_people_name_4"></h3>
+                                        <h4 class="index_people_tag_4"></h4>
+
+                                        <p class="lz-topic-info indexTopicInfo">
+                                            <i>『 </i>
+                                            <span class="index_people_content_4">
+                                            </span>
+                                            <i> 』</i>
+                                        </p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="clear"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-----------------------------------------------------------------福利和优惠-->
+        <div class="promotions o_preferential">
+            <div class="container o_container">
+                <div class="title tjb-scope">福利和优惠都在这了，还犹豫什么？!</div>
+
+                <div class="item index_goods_6">
+                    <a class="tjb-scope" href="">
+                        <span class="pro-image ui-frame tjb-isolate-scope">
+							<img alt="闪购图片1"
+                                 src=""
+                                 style="opacity: 1; height: 200px; width: 320px; left: 0px; top: 0px; position: absolute;">
+						</span>
+                        <span class="mask"></span>
+                        <span class="title tjb-binding index_goods_title_6">
+                        </span>
+                        <span class="price tjb-binding font-xieti">
+                            <span class="price-tip tjb-binding">一口价</span>
+                            <span class="price-tip">￥</span>
+                                <span class="index_goods_price_6">&nbsp;</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="item index_goods_6">
+                    <a class="tjb-scope" href="">
+                        <span class="pro-image ui-frame tjb-isolate-scope">
+							<img alt="闪购图片2" src=""
+                                 style="opacity: 1; height: 200px; width: 320px; left: 0px; top: 0px; position: absolute;">
+						</span>
+                        <span class="mask"></span>
+                        <span class="title tjb-binding index_goods_title_6">
+                        </span>
+                        <span class="price tjb-binding font-xieti">
+
+                            <span class="price-tip tjb-binding">一口价</span>
+                            <span class="price-tip">￥</span>
+                                <span class="index_goods_price_6">&nbsp;</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="item index_goods_6">
+                    <a class="tjb-scope" href="">
+                        <span class="pro-image ui-frame tjb-isolate-scope">
+							<img alt="闪购图片3"
+                                 src=""
+                                 style="opacity: 1; height: 200px; width: 320px; left: 0px; top: 0px; position: absolute;">
+						</span>
+                        <span class="mask"></span>
+                        <span class="title tjb-binding index_goods_title_6">
+                        </span>
+                        <span class="price tjb-binding font-xieti">
+                            <span class="price-tip tjb-binding">一口价</span>
+                            <span class="price-tip">￥</span>
+                                <span class="index_goods_price_6">&nbsp;</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="item index_goods_6">
+                    <a class="tjb-scope" href="">
+                        <span class="pro-image ui-frame tjb-isolate-scope">
+							<img alt="闪购图片4" src=""
+                                 style="opacity: 1; height: 200px; width: 320px; left: 0px; top: 0px; position: absolute;">
+						</span>
+                        <span class="mask"></span>
+                        <span class="title tjb-binding index_goods_title_6">
+                        </span>
+                        <span class="price tjb-binding font-xieti">
+                            <span class="price-tip tjb-binding">一口价</span>
+                            <span class="price-tip">￥</span>
+                                <span class="index_goods_price_6">&nbsp;</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="item index_goods_6">
+                    <a class="tjb-scope" href="">
+                        <span class="pro-image ui-frame tjb-isolate-scope">
+							<img alt="闪购图片5" src=""
+                                 style="opacity: 1; height: 200px; width: 320px; left: 0px; top: 0px; position: absolute;">
+						</span>
+                        <span class="mask"></span>
+                        <span class="title tjb-binding index_goods_title_6">
+                        </span>
+                        <span class="price tjb-binding font-xieti">
+                            <span class="price-tip tjb-binding">一口价</span>
+                            <span class="price-tip">￥</span>
+                                <span class="index_goods_price_6">&nbsp;</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="item index_goods_6">
+                    <a class="tjb-scope" href="#">
+                        <span class="pro-image ui-frame tjb-isolate-scope">
+							<img alt="闪购图片6" src=""
+                                 style="opacity: 1; height: 200px; width: 320px; left: 0px; top: 0px; position: absolute;">
+						</span>
+                        <span class="mask"></span>
+                        <span class="title tjb-binding index_goods_title_6">
+                        </span>
+                        <span class="price tjb-binding font-xieti">
+                            <span class="price-tip tjb-binding">一口价</span>
+                            <span class="price-tip">￥</span>
+                                <span class="index_goods_price_6">&nbsp;</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+	<!---------------------------------------footer-->
+     <iframe src="./common/footer.html" frameborder="0" style="width: 100%; height: auto;"></iframe>
+        
+    </div>
+    
+    <script src="js/jquery-1.8.3.js"></script>
+    <!-- <script src="js/base.js"></script> -->
+    <script src="js/index.js"></script>
+    <script src="js/lz_add.js"></script>
+    <script>
+        $(function () {
+            $("label.tjb-scope").on("click", function () {
+                $(".fun-content").toggle();
+                if ($(".fun-content").css("display") == "block") {
+                    $(".xiaokuai").show()
+                } else {
+                    $(".xiaokuai").hide()
+                }
+            });
+            $(".fun-content dl dd").on("click", function () {
+                var inDex = $(this).index();
+                if (inDex === 0) {
+                    var Huo = $(this).parent().parent().find("b").text();
+                    $("label.tjb-scope").text(Huo);
+                    $(".fun-content").hide();
+                    $(".xiaokuai").hide()
+                } else {
+                    var vlaue = $(this).text();
+                    $("label.tjb-scope").text(vlaue)
+                    $(".fun-content").hide()
+                    $(".xiaokuai").hide()
+                }
+            });
+            $(".fn-top-item").on("click", function () {
+                $(".fn-more").toggle();
+                if ($(".fn-more").css("display") == "block") {
+                    $(".fn-more").css("border-top", "1px solid #ccc");
+                    $(".fn-more-btn").css("border-top", "1px solid #ccc");
+                    $(".fn-more-btn").css("border-left", "1px solid #ccc");
+                    $("#fn-more-btn-words").text("点击收起");
+                } else {
+                    $(".fn-more").removeAttr("style")
+                    $(".fn-more-btn").removeAttr("style");
+                    $(".fn-more-btn").removeAttr("style");
+                    $("#fn-more-btn-words").text("点击展开");
+                }
+            });
+        })
+    </script>
+    <script src="js/data/indexGoodsInfo.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+.activity_date_choice {
+    width: 50%;
+    line-height: 20px;
+    border: 1px solid #E6E6E6;
+    text-align: center;
+    
+    margin: 5px auto;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.activity_date_choiced{
+	border: 1px solid #eb6409;
+}
+
+/*
+.activity_date_active {
+    border: 1px solid #eb6409;
+}*/
+
+.activity_other_choice {
+    width: 50%;
+    line-height: 20px;
+    border: 1px solid #E6E6E6;
+    text-align: center;
+    
+    margin: 10px auto;
+    margin-left: 30px;
+    cursor: pointer;
+}

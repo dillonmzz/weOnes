@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.blueline.dao.MyFavoriteDao">
+
+	<select id="queryMyFavoriteListByOpenId" resultType="MyFavorite">
+		SELECT
+		mf.openid,mf.activity_id,mf.create_time,
+		ac.title "activity.title",
+		ac.subhead "activity.subhead",
+		ac.thumbnails "activity.thumbnails",
+		ac.new_price "activity.newPrice"
+		FROM
+		we_user_favorite mf
+		JOIN we_activity ac ON mf.activity_id = ac.activity_id
+		AND mf.openId = #{openId}
+		AND mf.create_time = (
+		SELECT
+		max(fm.create_time)
+		FROM
+		we_user_favorite fm
+		WHERE
+		fm.openId = mf.openid
+		AND fm.activity_id = mf.activity_id
+		)
+		AND mf.state = 1
+	</select>
+	
+	
+	<!-- 关注或取消关注 -->
+	<insert id="favoriteOrCancel">
+		INSERT INTO
+		we_collect_favorite(openid,product_collect_id,state)
+		VALUES
+		(#{0},#{1},#{2})
+	</insert>
+
+	<!--  根据当前用户ID和产品ID查询出最新的状态 -->
+	<select id="queryStateByOpenIdAndProductCollectId" resultType="Integer">
+		select f.state FROM we_collect_favorite f
+		WHERE f.openId = #{0} and f.product_collect_id= #{1}
+		AND f.create_time=(select max(fm.create_time) from we_collect_favorite fm
+		where fm.openId=f.openid and fm.product_collect_id=f.product_collect_id)
+	</select>
+	
+	<!--  查询我的关注所有列表 -->
+	<select id="queryAllByOpenId" resultType="ProductCollectFavorite">
+		SELECT
+		mf.openid,mf.product_collect_id,mf.create_time
+		FROM
+		we_collect_favorite mf
+		where
+		mf.create_time = (
+		SELECT
+		max(fm.create_time)
+		FROM
+		we_collect_favorite fm
+		WHERE
+		fm.openId = mf.openid
+		AND fm.product_collect_id = mf.product_collect_id
+		)
+		AND mf.state = 1
+		AND mf.openid = #{openid}
+	</select>
+
+
+
+
+
+</mapper>

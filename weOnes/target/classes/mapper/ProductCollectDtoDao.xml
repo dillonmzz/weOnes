@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.blueline.dao.ProductCollectDtoDao">
+
+
+
+	<!-- 移动端分页查看产品列表 -->
+	<select id="appQueryByPage" resultType="cn.com.blueline.dto.ProductCollectDto">
+		SELECT
+		col.id id,
+		col.time_id timeId,
+		(
+		SELECT DISTINCT
+		tmg.time_desc
+		FROM
+		we_time_management tmg
+		WHERE
+		tmg.effdt = (
+		SELECT
+		max(tmgmax.effdt)
+		FROM
+		we_time_management tmgmax
+		WHERE
+		tmgmax.id = tmg.id
+		)
+		AND tmg. STATUS = 'A'
+		AND tmg.id = col.time_id
+		) timeDesc,
+		col.city city,
+		col.district
+		district,
+		col.address address,
+		TRUNCATE (col.price / 100, 2) price,
+		col.subject_id subjectId,
+		subpro.name subjectName,
+		subpro.title
+		subjectTitle,
+		subpro.product_photo subjectPhoto,
+		subpro.introduction
+		subjectDesc,
+		col.talent_id,
+		talpro.name talentName,
+		talpro.title
+		talentTitle,
+		talpro.product_photo talentPhoto,
+		talpro.introduction
+		talentDesc,
+		col.place_id placeId,
+		placepro.name placeName,
+		placepro.title placeTitle,
+		placepro.product_photo placePhoto,
+		placepro.introduction placeDesc
+		FROM
+		we_product_collect col
+		LEFT JOIN
+		we_product subpro ON subpro.effdt = (
+		SELECT
+		max(subpromax.effdt)
+		FROM
+		we_product subpromax
+		WHERE
+		subpromax.id = subpro.id
+		AND
+		subpromax.product_type = 'subject'
+		)
+		AND subpro. STATUS = 'A'
+		AND
+		subpro.id = col.subject_id
+		LEFT JOIN we_product talpro ON talpro.effdt
+		= (
+		SELECT
+		max(talpromax.effdt)
+		FROM
+		we_product talpromax
+		WHERE
+		talpromax.id = talpro.id
+		AND talpromax.product_type = 'talent'
+		)
+		AND
+		talpro. STATUS = 'A'
+		AND talpro.id = col.talent_id
+		LEFT JOIN we_product
+		placepro ON placepro.effdt = (
+		SELECT
+		max(placepromax.effdt)
+		FROM
+		we_product placepromax
+		WHERE
+		placepromax.id = placepro.id
+		AND
+		placepromax.product_type = 'place'
+		)
+		AND placepro. STATUS = 'A'
+		AND
+		placepro.id = col.place_id
+		WHERE
+		col.state = '2' ORDER BY col.create_time DESC limit #{0},#{1}
+	</select>
+	
+	
+	<!-- 根据城市和产品类别分页查询 -->
+	<select id="queryByCityAndType" resultType="cn.com.blueline.dto.ProductCollectDto">
+	SELECT
+	col.id id,
+	col.time_id timeId,
+	(
+	SELECT DISTINCT
+	tmg.time_desc
+	FROM
+	we_time_management tmg
+	WHERE
+	tmg.effdt = (
+	SELECT
+	max(tmgmax.effdt)
+	FROM
+	we_time_management tmgmax
+	WHERE
+	tmgmax.id = tmg.id
+	)
+	AND tmg. STATUS = 'A'
+	AND tmg.id = col.time_id
+	) timeDesc,
+	col.city city,
+	col.district
+	district,
+	col.address address,
+	TRUNCATE (col.price / 100, 2) price,
+	col.subject_id subjectId,
+	subpro.name subjectName,
+	subpro.title
+	subjectTitle,
+	subpro.product_photo subjectPhoto,
+	subpro.introduction
+	subjectDesc,
+	col.talent_id,
+	talpro.name talentName,
+	talpro.title
+	talentTitle,
+	talpro.product_photo talentPhoto,
+	talpro.introduction
+	talentDesc,
+	col.place_id placeId,
+	placepro.name placeName,
+	placepro.title placeTitle,
+	placepro.product_photo placePhoto,
+	placepro.introduction placeDesc
+	FROM
+	we_product_collect col
+	LEFT JOIN
+	we_product subpro ON subpro.effdt = (
+	SELECT
+	max(subpromax.effdt)
+	FROM
+	we_product subpromax
+	WHERE
+	subpromax.id = subpro.id
+	AND
+	subpromax.product_type = 'subject'
+	)
+	AND subpro. STATUS = 'A'
+	AND
+	subpro.id = col.subject_id
+	LEFT JOIN we_product talpro ON talpro.effdt
+	= (
+	SELECT
+	max(talpromax.effdt)
+	FROM
+	we_product talpromax
+	WHERE
+	talpromax.id = talpro.id
+	AND talpromax.product_type = 'talent'
+	)
+	AND
+	talpro. STATUS = 'A'
+	AND talpro.id = col.talent_id
+	LEFT JOIN we_product
+	placepro ON placepro.effdt = (
+	SELECT
+	max(placepromax.effdt)
+	FROM
+	we_product placepromax
+	WHERE
+	placepromax.id = placepro.id
+	AND
+	placepromax.product_type = 'place'
+	)
+	AND placepro. STATUS = 'A'
+	AND
+	placepro.id = col.place_id
+	WHERE
+	col.state = '2'
+	<choose>
+		<when test="type=='near'">
+			AND col.district=#{city}
+		</when>
+		<otherwise>
+			<if test="city!='allcity' ">
+				AND col.city = #{city}
+			</if>
+			<if test="type=='place'">
+				AND col.place_id IS NOT NULL
+			</if>
+			<if test="type=='talent'">
+				AND col.talent_id IS NOT NULL
+			</if>
+		</otherwise>
+	</choose>
+	ORDER BY col.create_time DESC limit #{0},#{1}
+	</select>
+
+	<!-- 根据产品ID 查询产品详细 -->
+	<select id="queryById" resultType="cn.com.blueline.dto.ProductCollectDto">
+		SELECT
+		col.id id,
+		col.time_id timeId,
+		tmg.time_desc timeDesc,
+		tmg.time_typ timeType,
+		tmg.section timeSection,
+		col.city city,
+		col.district district,
+		col.address address,
+		TRUNCATE (col.price / 100, 2) price,
+		col.subject_id subjectId,
+		subpro.name subjectName,
+		subpro.title subjectTitle,
+		subpro.product_photo subjectPhoto,
+		subpro.introduction subjectDesc,
+		col.talent_id,
+		talpro.name talentName,
+		talpro.title talentTitle,
+		talpro.product_photo talentPhoto,
+		talpro.introduction talentDesc,
+		col.place_id placeId,
+		placepro.name placeName,
+		placepro.title placeTitle,
+		placepro.product_photo placePhoto,
+		placepro.introduction placeDesc,
+		col.min_people minPeople,
+		col.max_people maxPeople,
+		col.create_user
+		FROM
+		we_product_collect col
+		LEFT JOIN we_product subpro ON subpro.effdt = (
+		SELECT
+		max(subpromax.effdt)
+		FROM
+		we_product subpromax
+		WHERE
+		subpromax.id = subpro.id
+		AND subpromax.product_type = 'subject'
+		)
+		AND subpro. STATUS = 'A'
+		AND subpro.id = col.subject_id
+		LEFT JOIN we_product talpro ON talpro.effdt = (
+		SELECT
+		max(talpromax.effdt)
+		FROM
+		we_product talpromax
+		WHERE
+		talpromax.id = talpro.id
+		AND talpromax.product_type = 'talent'
+		)
+		AND talpro. STATUS = 'A'
+		AND talpro.id = col.talent_id
+		LEFT JOIN we_product placepro ON placepro.effdt = (
+		SELECT
+		max(placepromax.effdt)
+		FROM
+		we_product placepromax
+		WHERE
+		placepromax.id = placepro.id
+		AND placepromax.product_type = 'place'
+		)
+		AND placepro. STATUS = 'A'
+		AND placepro.id = col.place_id
+		LEFT JOIN we_time_management tmg ON tmg.section = (SELECT
+		max(tmgmax.section) FROM we_time_management tmgmax WHERE tmgmax.id =
+		tmg.id)
+		AND tmg.STATUS = 'A'
+		AND tmg.id = col.time_id
+		WHERE
+		<!-- col.state = '2'
+		AND  -->
+		col.id= #{id}
+	</select>
+	
+	<!-- 发布者查看自己的活动列表 -->
+	<select id="queryByUser" resultType="cn.com.blueline.dto.ProductCollectDto">
+		SELECT
+		col.id id,
+		col.time_id timeId,
+		(
+		SELECT DISTINCT
+		tmg.time_desc
+		FROM
+		we_time_management tmg
+		WHERE
+		tmg.effdt = (
+		SELECT
+		max(tmgmax.effdt)
+		FROM
+		we_time_management tmgmax
+		WHERE
+		tmgmax.id = tmg.id
+		)
+		AND tmg. STATUS = 'A'
+		AND tmg.id = col.time_id
+		) timeDesc,
+		col.city city,
+		col.district
+		district,
+		col.address address,
+		TRUNCATE (col.price / 100, 2) price,
+		col.subject_id subjectId,
+		subpro.name subjectName,
+		subpro.title
+		subjectTitle,
+		subpro.product_photo subjectPhoto,
+		subpro.introduction
+		subjectDesc,
+		col.talent_id,
+		talpro.name talentName,
+		talpro.title
+		talentTitle,
+		talpro.product_photo talentPhoto,
+		talpro.introduction
+		talentDesc,
+		col.place_id placeId,
+		placepro.name placeName,
+		placepro.title placeTitle,
+		placepro.product_photo placePhoto,
+		placepro.introduction placeDesc,
+		col.state
+		FROM
+		we_product_collect col
+		LEFT JOIN
+		we_product subpro ON subpro.effdt = (
+		SELECT
+		max(subpromax.effdt)
+		FROM
+		we_product subpromax
+		WHERE
+		subpromax.id = subpro.id
+		AND
+		subpromax.product_type = 'subject'
+		)
+		AND subpro. STATUS = 'A'
+		AND
+		subpro.id = col.subject_id
+		LEFT JOIN we_product talpro ON talpro.effdt
+		= (
+		SELECT
+		max(talpromax.effdt)
+		FROM
+		we_product talpromax
+		WHERE
+		talpromax.id = talpro.id
+		AND talpromax.product_type = 'talent'
+		)
+		AND
+		talpro. STATUS = 'A'
+		AND talpro.id = col.talent_id
+		LEFT JOIN we_product
+		placepro ON placepro.effdt = (
+		SELECT
+		max(placepromax.effdt)
+		FROM
+		we_product placepromax
+		WHERE
+		placepromax.id = placepro.id
+		AND
+		placepromax.product_type = 'place'
+		)
+		AND placepro. STATUS = 'A'
+		AND
+		placepro.id = col.place_id
+		WHERE
+		col.create_user = #{createUser} 
+		<if test="state!='all' ">
+			AND col.state = #{state}
+		</if>
+		
+		ORDER BY col.create_time DESC
+	</select>
+	
+
+</mapper>

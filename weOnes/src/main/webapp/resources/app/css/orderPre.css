@@ -1,0 +1,226 @@
+body,
+li,
+ul {
+	padding: 0;
+	margin: 0
+}
+body {
+	background-color: #f7f7f7;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #6b6b6b;
+	font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", sans-serif
+}
+body * {
+	box-sizing: border-box;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0)
+}
+.clearfix:after,
+.clearfix:before {
+	content: "\0020";
+	display: block;
+	height: 0;
+	overflow: hidden
+}
+.clearfix:after {
+	clear: both
+}
+.clearfix {
+	zoom: 1
+}
+em {
+	font-style: normal
+}
+@media screen and (min-width:720px) {
+	body {
+		position: relative;
+		max-width: 720px;
+		left: 50%;
+		margin-left: -360px
+	}
+}
+li,
+ul {
+	list-style: none
+}
+header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background: #eb6409;
+	height: 44px;
+	line-height: 44px;
+	font-size: 16px;
+	z-index: 1001;
+	color: #FFF
+}
+.zw-fee-header a {
+	width: 42px;
+	height: 42px;
+	display: inline-block
+}
+.zw-fee-header center {
+	width: 100%;
+	display: block;
+	text-align: -webkit-center
+}
+.fleft {
+	float: left
+}
+.fright {
+	float: right
+}
+header .zw-fee-back {
+	background: url(../images/v1.1/icon_of_back-1c17d64f35.png) 10px center no-repeat;
+	background-size: 12px
+}
+.zw-fee-content {
+	width: 100%;
+	position: relative;
+	display: block;
+	margin: 44px 0 60px;
+	background: #f7f7f7
+}
+.zw-fee-content .zw-fee-tip {
+	background: #fff0db;
+	font-size: 12px;
+	color: #fa7308;
+	height: 30px;
+	line-height: 30px;
+	text-align: center
+}
+.zw-fee-content .zw-fee-info {
+	padding: 20px 15px 9px;
+	background: #f7f7f7
+}
+.zw-fee-content .zw-fee-info p {
+	font-size: 12px;
+	color: #aeaeae;
+	height: 12px;
+	line-height: 12px;
+	margin: 0 0 11px
+}
+.zw-fee-content .zw-fee-time {
+	margin: 0;
+	border-bottom: #ddd 1px solid;
+	width: 100%;
+	height: 84px;
+	background: #FFF;
+	position: relative
+}
+.zw-fee-content .zw-fee-time .zw-fee-time-imgs {
+	position: absolute;
+	margin: 10px 10px 10px 15px;
+	width: 64px;
+	height: 64px;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	background-size: cover
+}
+.zw-fee-content .zw-fee-time .zw-fee-time-content {
+	margin: 0 10px 0 89px;
+	padding-top: 22px
+}
+.zw-fee-content .zw-fee-time .zw-fee-time-content .h3 {
+	white-space: nowrap;
+	margin: 0 0 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0;
+	font-size: 15px;
+	line-height: 15px;
+	color: #6b6b6b
+}
+.zw-fee-content .zw-fee-time .zw-fee-time-content p.pf {
+	margin: 0 0 8px;
+	padding: 0;
+	font-size: 12px;
+	line-height: 14px;
+	color: #6b6b6b;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+.zw-fee-content .zw-fee-info-detail {
+	padding: 15px;
+	border-bottom: #ddd 1px solid;
+	background: #fff
+}
+.zw-fee-content .zw-fee-info-detail ul li {
+	height: 25px;
+	line-height: 25px
+}
+.zw-fee-content .zw-fee-way,
+.zw-fee-content .zw-fee-way p {
+	height: 44px;
+	line-height: 44px
+}
+.zw-fee-content .zw-fee-info-detail ul li p.pt {
+	width: 50%;
+	color: #6b6b6b;
+	font-size: 14px;
+	margin: 0
+}
+.zw-fee-content .zw-fee-info-detail ul li p.pf {
+	width: 50%;
+	color: #6b6b6b;
+	font-size: 14px;
+	margin: 0;
+	text-align: right
+}
+.zw-fee-content .zw-fee-info-detail ul li p.pf em,
+.zw-fee-content .zw-fee-info-detail ul li p.pf span.red {
+	color: #ff565d
+}
+.zw-fee-content .zw-fee-way {
+	margin-top: 10px;
+	padding: 0 15px;
+	font-size: 14px;
+	color: #6b6b6b;
+	background: #fff;
+	border-bottom: 1px solid #ddd
+}
+.zw-fee-content .zw-fee-zt {
+	padding: 0 15px
+}
+.zw-fee-content .zw-fee-zt p {
+	margin-top: 10px;
+	margin-right: 15px;
+	font-size: 12px;
+	height: 15px;
+	line-height: 15px;
+	color: #15d8e7;
+	padding-left: 18px
+}
+#payBt,
+footer {
+	width: 100%;
+	height: 48px
+}
+.zw-fee-content .zw-fee-zt p.tui {
+	background: url(../images/icon_refound-97275cf37c.png) left top no-repeat;
+	background-size: 15px
+}
+.zw-fee-content .zw-fee-zt p.go {
+	background: url(../images/icon_anytime-d31470ce39.png) left top no-repeat;
+	background-size: 15px
+}
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 1000
+}
+#payBt {
+	border: none;
+	line-height: 48px;
+	font-size: 15px;
+	color: #fff;
+	text-align: center;
+	font-family: "微软雅黑";
+	background: #eb6409
+}
