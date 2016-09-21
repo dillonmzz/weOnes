@@ -232,7 +232,7 @@
 }
 .page.flex-container .container {
 	width: 70%!important;
-	min-width: 1100px
+	min-width: 755px
 }
 .banner-download {
 	position: fixed;
@@ -444,25 +444,25 @@
 	position: relative
 }
 .cue-tip,
-.cue-tip table tr {
+.cue-tip ul tr {
 	height: 145px
 }
 .cue-tip {
 	background-color: #f7f7f7;
 	clear: both
 }
-.cue-tip table tr .iconfont {
+.cue-tip ul tr .iconfont {
 	font-size: 60px;
 	color: #F4616D
 }
-.cue-tip table tr .title {
+.cue-tip ul tr .title {
 	font-size: 20px;
 	line-height: 30px;
 	color: #666;
 	font-weight: 700;
 	padding: 0
 }
-.cue-tip table tr .sub-title {
+.cue-tip ul tr .sub-title {
 	color: #999;
 	font-size: 14px
 }
@@ -695,7 +695,7 @@
 	overflow: hidden
 }
 .time-picker .time-tabs,
-.time-picker table.time td {
+.time-picker ul.time li {
 	height: 40px;
 	line-height: 40px
 }
@@ -736,15 +736,16 @@
 	width: 100%;
 	left: 0
 }
-.time-picker table.time {
+.time-picker ul.time {
 	width: 100%;
 	border-collapse: collapse;
 	border-spacing: 0
 }
-.time-picker table.time td {
+.time-picker ul.time li {
 	padding: 0;
 	margin: 0;
-	width: 17%;
+	width: 16.3%;
+	float:left;
 	border-right: 1px solid #F2F2F2;
 	border-top: 1px solid #F2F2F2;
 	text-align: center;
@@ -754,30 +755,30 @@
 	transition: all .5s ease;
 	color: #333
 }
-.time-picker table.time td:nth-of-type(6n+1) {
+.time-picker ul.time li:nth-of-type(6n+1) {
 	width: 16%
 }
-.time-picker table.time td:nth-of-type(6n) {
+.time-picker ul.time li:nth-of-type(6n) {
 	width: 16%;
 	border-right: none
 }
-.time-picker table.time td.active,
-.time-picker table.time td:hover {
+.time-picker ul.time li.active,
+.time-picker ul.time li:hover {
 	background-color: #F4616D;
 	color: #fff
 }
-.time-picker table.time td.disabled {
+.time-picker ul.time li.disabled {
 	color: #aaa
 }
-.time-picker table.time td.disabled:hover {
+.time-picker ul.time li.disabled:hover {
 	background-color: #fff;
 	color: #aaa
 }
-.time-picker table.time td:after {
+.time-picker ul.time li:after {
 	content: ":00";
 	font-size: 12px
 }
-.time-picker table.time td .time-minute {
+.time-picker ul.time li .time-minute {
 	font-size: 12px
 }
 .dialog-signin {
@@ -1115,7 +1116,7 @@ img {
 .icon-projector:before {
 	content: "\e60f"
 }
-.icon-table:before {
+.icon-ul:before {
 	content: "\e610"
 }
 .icon-wifi:before {
@@ -1899,7 +1900,7 @@ img {
 	background: #fff
 }
 .index .promotions .item a,
-.index .user-story table .user-avatar {
+.index .user-story ul .user-avatar {
 	background-repeat: no-repeat;
 	background-size: cover;
 	overflow: hidden
@@ -2046,22 +2047,22 @@ img {
 	color: #5C5C5E;
 	font-weight: 700
 }
-.index .user-story table {
+.index .user-story ul {
 	width: 100%;
 	text-align: center;
 	float: left
 }
-.index .user-story table td {
+.index .user-story ul td {
 	width: 330px
 }
-.index .user-story table .user-name {
+.index .user-story ul .user-name {
 	color: #333;
 	font-size: 18px
 }
-.index .user-story table .user-avatars {
+.index .user-story ul .user-avatars {
 	height: 160px
 }
-.index .user-story table .user-avatar {
+.index .user-story ul .user-avatar {
 	border-radius: 130px;
 	height: 130px;
 	width: 130px;
@@ -2069,12 +2070,12 @@ img {
 	display: inline-block;
 	background-position: center
 }
-.index .user-story table .user-content td {
+.index .user-story ul .user-content td {
 	text-align: left;
 	padding: 10px 60px;
 	line-height: 20px
 }
-.index .user-story table .user-content td a {
+.index .user-story ul .user-content td a {
 	padding-top: 20px;
 	display: block;
 	text-align: center;
@@ -2284,15 +2285,15 @@ img {
 	padding: 5px;
 	min-width: 990px
 }
-.list .list-header table {
+.list .list-header ul {
 	border-collapse: collapse;
 	border-spacing: 0;
 	width: 100%
 }
-.list .list-header table td {
+.list .list-header ul td {
 	padding: 5px
 }
-.list .list-header table td .ui-select {
+.list .list-header ul td .ui-select {
 	height: 36px;
 	line-height: 36px;
 	border: 1px solid #fff;
@@ -2305,18 +2306,18 @@ img {
 	color: #333;
 	display: block
 }
-.list .list-header table td .ui-select:after {
+.list .list-header ul td .ui-select:after {
 	content: "\e604";
 	font-size: 16px;
 	right: 10px
 }
-.list .list-header table td .ui-select.active {
+.list .list-header ul td .ui-select.active {
 	background-color: #F7F7F7;
 	color: #666;
 	border: 1px solid #DCDCDC;
 	border-bottom: none
 }
-.list .list-header table td .search-input {
+.list .list-header ul td .search-input {
 	height: 38px;
 	line-height: 38px;
 	background-color: #fff;
@@ -2326,12 +2327,12 @@ img {
 	overflow: hidden;
 	position: relative
 }
-.list .list-header table td .search-input .search-name {
+.list .list-header ul td .search-input .search-name {
 	width: 46px;
 	padding: 0 10px;
 	float: left
 }
-.list .list-header table td .search-input .search-q {
+.list .list-header ul td .search-input .search-q {
 	float: left;
 	border: none;
 	height: 18px;
@@ -2339,7 +2340,7 @@ img {
 	padding: 10px 0;
 	width: 70%
 }
-.list .list-header table td .search-input .search-btn {
+.list .list-header ul td .search-input .search-btn {
 	width: 70px;
 	background-color: #F4616D;
 	color: #fff;
@@ -2350,7 +2351,7 @@ img {
 	top: 0;
 	cursor: pointer
 }
-.list .list-header table td .filter-items {
+.list .list-header ul td .filter-items {
 	height: 38px;
 	line-height: 38px;
 	padding-right: 98px;
@@ -2358,12 +2359,12 @@ img {
 	color: #000;
 	overflow: hidden
 }
-.list .list-header table td .filter-items .filter-name {
+.list .list-header ul td .filter-items .filter-name {
 	min-width: 46px;
 	float: left;
 	padding: 0 8px
 }
-.list .list-header table td .filter-items label {
+.list .list-header ul td .filter-items label {
 	min-width: 90px;
 	float: left;
 	cursor: pointer
@@ -2920,9 +2921,7 @@ img {
 	top: 0;
 	right: 0;
 	left: 64%;
-	height: 100%;
-    
-    z-index: 101;
+	height: 100%
 }
 .list .list-main .list-side .map-places {
 	width: 100%;
@@ -3744,7 +3743,7 @@ img {
 	margin: 20px 0
 }
 .detail .detail-main .detail-info {
-	padding-right: 0
+	padding-right: 345px;
 }
 .detail .detail-main .detail-info .space-filter {
 	height: 38px;
@@ -4034,72 +4033,72 @@ img {
 .detail .detail-main .detail-info .space-list .space-item .space-layouts.showMore {
 	overflow: inherit!important
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans {
 	border-collapse: collapse;
 	border-spacing: 0;
 	width: 100%
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans thead tr {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans thead tr {
 	height: 24px;
 	background-color: #F7F7F7
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans thead tr th {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans thead tr th {
 	color: #aaa;
 	font-weight: 400;
 	padding: 0 14px;
 	font-size: 12px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody {
 	padding: 10px 0 0
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr {
 	height: 30px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.tag-line {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.tag-line {
 	height: 20px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.tag-line td {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.tag-line td {
 	padding: 0 11px 5px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.top-space {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.top-space {
 	height: 8px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td {
 	position: relative
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td.rate-name {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td.rate-name {
 	padding: 0 14px;
 	line-height: 20px;
 	color: #333;
 	font-size: 15px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td.list-price {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td.list-price {
 	color: #aaa;
 	text-decoration: line-through;
 	padding: 0;
 	margin-right: 6px;
 	text-align: center
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td.price-tags {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td.price-tags {
 	font-size: 12px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td.price-tags .one-mouse {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td.price-tags .one-mouse {
 	color: #ff8e00
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td.price-tags .face2face {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td.price-tags .face2face {
 	color: #4c87d2
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td.price-tags .blue {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td.price-tags .blue {
 	color: #4C87D2
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td.rate-price {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td.rate-price {
 	font-size: 16px;
 	color: #F4616D
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td.rate-price .price-tip {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td.rate-price .price-tip {
 	font-size: 12px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td .promo-tag {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td .promo-tag {
 	font-size: 12px;
 	-webkit-transform: scale(.84);
 	transform: scale(.84);
@@ -4108,19 +4107,19 @@ img {
 	border: none;
 	margin-right: -3px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td .promo-tj {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td .promo-tj {
 	background-color: #f2626f
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td .promo-zffx {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td .promo-zffx {
 	background-color: #feb900
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td .deposit-price {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td .deposit-price {
 	font-size: 12px;
 	display: block;
 	color: #666;
 	font-family: normal
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td .rate-button {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td .rate-button {
 	background-color: #F4616D;
 	color: #fff;
 	border-radius: 4px;
@@ -4132,7 +4131,7 @@ img {
 	float: right;
 	margin-right: 10px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td .enquiry-btn {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td .enquiry-btn {
 	color: #F4616D;
 	border: 1px solid #F4616D;
 	border-radius: 4px;
@@ -4144,76 +4143,76 @@ img {
 	float: right;
 	margin-right: 10px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr td .pay-guide {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr td .pay-guide {
 	float: right;
 	margin-right: 10px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.bottom-line {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.bottom-line {
 	height: 5px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.bottom-line td {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.bottom-line td {
 	vertical-align: bottom;
 	padding-bottom: 20px;
 	padding-top: 20px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.bottom-line hr {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.bottom-line hr {
 	border: 0;
 	border-top: 1px #e8e8e8 solid;
 	margin: 0
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.last-child hr {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.last-child hr {
 	display: none
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description {
 	color: #999;
 	font-size: 13px;
 	line-height: 26px;
 	height: inherit
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description td {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description td {
 	padding: 5px 10px 0 14px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul {
 	width: 100%;
 	padding: 0;
 	margin: 0;
 	border-spacing: 0
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr {
 	padding: 0;
 	margin: 0;
 	height: 20px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr td,
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr th {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr td,
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr th {
 	vertical-align: top;
 	margin: 0;
 	padding: 0;
 	text-align: left;
 	color: #999
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr td p,
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr th p {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr td p,
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr th p {
 	display: inline-block;
 	margin: 0 15px 0 0;
 	white-space: nowrap
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr td .iconfont,
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr th .iconfont {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr td .iconfont,
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr th .iconfont {
 	font-size: 14px;
 	margin-right: 10px;
 	margin-left: 20px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr td .iconfont:first-child,
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr th .iconfont:first-child {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr td .iconfont:first-child,
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr th .iconfont:first-child {
 	margin-left: 0
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr td .icon-people,
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr th .icon-people {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr td .icon-people,
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr th .icon-people {
 	font-size: 15px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr td .desc-more-btn,
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr th .desc-more-btn {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr td .desc-more-btn,
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr th .desc-more-btn {
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -4222,16 +4221,16 @@ img {
 	cursor: pointer;
 	padding: 0 0 0 10px
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr th {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr th {
 	font-weight: 700
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.rate-description .dp-table tr .icon-review-star {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.rate-description .dp-ul tr .icon-review-star {
 	color: #999
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr.bottom-border {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr.bottom-border {
 	border-bottom: 1px solid #E5E5E5
 }
-.detail .detail-main .detail-info .space-list .space-item table.rate-plans tbody tr:last-child {
+.detail .detail-main .detail-info .space-list .space-item ul.rate-plans tbody tr:last-child {
 	border-bottom: none
 }
 .detail .detail-main .detail-info .space-list .space-item .more-rate {
@@ -4379,7 +4378,7 @@ img {
 .detail .detail-main .detail-info .place-info .place-facilities {
 	position: relative;
 	min-height: 25px;
-/*	border-bottom: 1px solid #E6E6E6;*/
+	border-bottom: 1px solid #E6E6E6;
 	margin-left: -105px;
 	padding: 15px 0 10px 105px
 }
@@ -4433,66 +4432,66 @@ img {
 	height: 85px;
 	overflow: hidden
 }
-.detail .detail-main .detail-info .place-info .place-events {
+#placeSide .place-events {
 	overflow: auto;
 	margin-top: 10px;
-	margin-bottom: 30px
+	margin-bottom: 30px;
+	height:1200px
 }
-.detail .detail-main .detail-info .place-info .place-events ul {
-	float: left;
-	width: 50%
+#placeSide ul {
+	width: 100%
 }
-.detail .detail-main .detail-info .place-info .place-events ul li {
+#placeSide ul li {
 	margin-bottom: 20px;
 	margin-left: 10px;
 	margin-right: 10px;
 	cursor: pointer
 }
-.detail .detail-main .detail-info .place-info .place-events ul li .event-img {
+#placeSide ul li .event-img {
 	width: 100%;
 	height: 200px;
 	display: block;
 	cursor: pointer
 }
-.detail .detail-main .detail-info .place-info .place-events ul li .event-title {
+#placeSide ul li .event-title {
 	width: 100%;
 	background-color: #F5F5F5;
 	position: relative;
 	border-bottom: 1px solid #F5F5F5
 }
-.detail .detail-main .detail-info .place-info .place-events ul li .event-title div {
+#placeSide ul li .event-title div {
 	padding: 16px 16px 20px
 }
-.detail .detail-main .detail-info .place-info .place-events ul li .event-title div h2 {
+#placeSide ul li .event-title div h2 {
 	color: #333;
 	margin: 0;
 	cursor: pointer
 }
-.detail .detail-main .detail-info .place-info .place-events ul li .event-title div span {
+#placeSide ul li .event-title div span {
 	display: block;
 	line-height: 30px;
 	color: #999
 }
-.detail .detail-main .detail-info .place-info .place-events ul li .event-title div .event-content {
+#placeSide ul li .event-title div .event-content {
 	line-height: 20px
 }
-.detail .detail-main .detail-info .place-info .place-events ul li .event-title b {
+#placeSide ul li .event-title b {
 	position: absolute;
 	padding: 0 12px;
 	line-height: 26px;
 	background-color: #000;
 	color: #fff;
 	right: 10px;
-	top: -13px;
+	top: -38px;
 	font-weight: 400
 }
-.detail .detail-main .detail-info .place-info .place-events ul li:hover .event-title {
+#placeSide ul li:hover .event-title {
 	border-bottom: 1px solid #F4616D
 }
-.detail .detail-main .detail-info .place-info .place-events ul li:hover .event-title div>h2 {
+#placeSide ul li:hover .event-title div>h2 {
 	color: #F4616D
 }
-.detail .detail-main .detail-info .place-info .place-events ul li:hover .event-title b {
+#placeSide ul li:hover .event-title b {
 	background-color: #F4616D
 }
 .detail .detail-main .detail-info .place-info .place-events .more-events {
@@ -4967,7 +4966,7 @@ img {
 .detail .place-master .inquiry-layouts .layout-item .checkbox:after {
 	content: "";
 	position: absolute;
-	display: table;
+	display: ul;
 	width: 6px;
 	height: 3px;
 	border: 2px solid #fff;
@@ -5277,7 +5276,7 @@ img {
 	line-height: 34px
 }
 #history {
-	padding: 65px 10px 0;
+	padding: 20px 10px 0;
 	border-top: none
 }
 .review-post .article {
@@ -5546,7 +5545,7 @@ img {
 	top: 16px;
 	font-size: 16px
 }
-.inquiry .main .inquiry-content .inquiry-form .form-content .form-table {
+.inquiry .main .inquiry-content .inquiry-form .form-content .form-ul {
 	border: 1px solid #e8e8e8;
 	border-radius: 2px;
 	background-color: #FCFCFC;
@@ -5554,31 +5553,31 @@ img {
 	width: 100%;
 	font-size: 14px
 }
-.inquiry .main .inquiry-content .inquiry-form .form-content .form-table tr td {
+.inquiry .main .inquiry-content .inquiry-form .form-content .form-ul tr td {
 	border-right: 1px solid #e8e8e8;
 	border-bottom: 1px solid #e8e8e8;
 	min-height: 20px;
 	line-height: 20px
 }
-.inquiry .main .inquiry-content .inquiry-form .form-content .form-table tr td:last-child {
+.inquiry .main .inquiry-content .inquiry-form .form-content .form-ul tr td:last-child {
 	border-right: none
 }
-.inquiry .main .inquiry-content .inquiry-form .form-content .form-table tr td label {
+.inquiry .main .inquiry-content .inquiry-form .form-content .form-ul tr td label {
 	padding: 14px;
 	display: block;
 	position: relative
 }
-.inquiry .main .inquiry-content .inquiry-form .form-content .form-table tr td label.form-item {
+.inquiry .main .inquiry-content .inquiry-form .form-content .form-ul tr td label.form-item {
 	padding-left: 80px
 }
-.inquiry .main .inquiry-content .inquiry-form .form-content .form-table tr td label .item-name {
+.inquiry .main .inquiry-content .inquiry-form .form-content .form-ul tr td label .item-name {
 	width: 80px;
 	display: block;
 	position: absolute;
 	left: 14px;
 	font-size: 14px
 }
-.inquiry .main .inquiry-content .inquiry-form .form-content .form-table tr td label .item-tip {
+.inquiry .main .inquiry-content .inquiry-form .form-content .form-ul tr td label .item-tip {
 	position: absolute;
 	color: #666;
 	display: inline-block;
@@ -5598,7 +5597,7 @@ img {
 	font-family: iconfont!important;
 	font-style: normal
 }
-.inquiry .main .inquiry-content .inquiry-form .form-content .form-table tr:last-child td {
+.inquiry .main .inquiry-content .inquiry-form .form-content .form-ul tr:last-child td {
 	border-bottom: none
 }
 .inquiry .main .inquiry-content .inquiry-form .form-content input[type=text],
@@ -5655,11 +5654,11 @@ img {
 }
 .inquiry .main .inquiry-content .inquiry-form .form-content .inquiry-layouts:before {
 	content: "";
-	display: table
+	display: ul
 }
 .inquiry .main .inquiry-content .inquiry-form .form-content .inquiry-layouts:after {
 	content: "";
-	display: table;
+	display: ul;
 	clear: both
 }
 .inquiry .main .inquiry-content .inquiry-form .form-content .inquiry-layouts .layout-item {
@@ -5704,7 +5703,7 @@ img {
 .inquiry .main .inquiry-content .inquiry-form .form-content .inquiry-layouts .layout-item .checkbox:after {
 	content: "";
 	position: absolute;
-	display: table;
+	display: ul;
 	width: 6px;
 	height: 3px;
 	border: 2px solid #fff;
@@ -6123,13 +6122,13 @@ img {
 .order-create .main .left .form .tips.info h2.gray {
 	color: gray
 }
-.order-create .main .left .form .tips.order-table .item {
+.order-create .main .left .form .tips.order-ul .item {
 	overflow: hidden;
 	font-size: 14px;
 	margin: 0 0 5px;
 	line-height: 24px
 }
-.order-create .main .left .form .tips.order-table .item span {
+.order-create .main .left .form .tips.order-ul .item span {
 	display: block;
 	float: left;
 	width: 100px;
@@ -6137,14 +6136,14 @@ img {
 	text-indent: 10px;
 	letter-spacing: -1px
 }
-.order-create .main .left .form .tips.order-table .item b {
+.order-create .main .left .form .tips.order-ul .item b {
 	display: block;
 	float: left;
 	width: 580px;
 	color: #333;
 	font-weight: 400
 }
-.order-create .main .left .form .tips.order-table .item .more-info {
+.order-create .main .left .form .tips.order-ul .item .more-info {
 	color: #f2626f;
 	display: block;
 	text-indent: 10px;
@@ -6154,7 +6153,7 @@ img {
 .order-create .main .right .red-envelope .mult-right {
 	float: right
 }
-.order-create .main .left .form .tips.order-table .item .more-info:hover {
+.order-create .main .left .form .tips.order-ul .item .more-info:hover {
 	text-decoration: underline
 }
 .order-create .main .right {
@@ -6208,7 +6207,7 @@ img {
 }
 .order-create .main .right .red-envelope {
 	height: 56px;
-	display: table-cell;
+	display: ul-cell;
 	vertical-align: middle;
 	width: 270px
 }

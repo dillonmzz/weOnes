@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		@charset "UTF-8";
+		[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide {display: none !important;}
+		ng\:form {display: block;}
+		.ng-animate-block-transitions {transition: 0s all!important;-webkit-transition: 0s all!important;}
+		.ng-hide-add-active,.ng-hide-remove {display: block!important;}
+	</style>
+	<title ng-bind="head.title" class="ng-binding">WEONS</title>
+	<meta name="keywords" content=" ">
+	<meta name="description" content=" ">
+	<meta name="viewport" content="minimal-ui,width=device-width,initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<meta charset="UTF-8">
+	<link href="css/hobbitweb.css" rel="stylesheet" type="text/css">
+	<link href="css/components.css" rel="stylesheet" type="text/css">
+	<link href="css/app3.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-1.8.3.js"></script>
+	<script src="js/My97DatePicker/WdatePicker.js"></script>
+</head>
+<body class="page container order" style="visibility: visible;">
+	<div class="order-create">
+		<div class="navbar" navbar="">
+			<div class="container">
+				<a class="brand" href="/">
+					<img class="brand-logo" src="resources/images/logo.png" alt=""> 
+					<i class="iconfont icon-brandname brand-name"></i> 
+					<i class="iconfont icon-slogan brand-slogan"></i>
+				</a> 
+				<span class="navbar-right">
+					<div class="navbar-item nick-name ng-scope">
+						<a class="ng-isolate-scope">用户登录</a>
+					</div>
+					<a class="navbar-item c-999" href="tel:4006196139">
+						<i class="iconfont icon-telephone"></i>
+					</a> 
+					<a class="navbar-item" target="_blank" href="#">
+						<i class="iconfont icon-mobilephone"></i>
+						手机WEONS
+					</a>
+				</span>
+			</div>
+		</div>
+		<div class="progress container">
+			<span class="cur">订单填写</span>
+			<span>等待确认</span>
+			<span class="ng-scope">支付订单</span>
+			<span>订单完成</span>
+		</div>
+		<div class="main container">
+			<div class="left">
+				<div class="form">
+					<h2>预订信息填写</h2>
+					<form name="form" class="ng-invalid ng-dirty ng-invalid-pattern ng-valid-required">
+						<li>
+							<span>姓名</span>
+							<input type="text" name="buyerName" placeholder="必填" class="ng-dirty ng-valid ng-valid-required">
+						</li>
+						<li>
+							<span>手机号码</span>
+							<input type="text" placeholder="必填" class="ng-dirty ng-valid-required ng-invalid ng-invalid-pattern">
+						</li>
+						<li>
+							<span>日期选择</span>
+							<input class="Wdate" type="text" placeholder="请选择日期" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'2016-09-06',maxDate:'2200-09-10'})"/>
+						</li>
+						<li class="ng-scope">
+							<span>使用时长</span>
+							<label class="input-item input-time ng-binding ng-isolate-scope">0:00-0:00</label>
+						</li>
+						<li>
+							<span>人数</span>
+							<input type="text" placeholder="必填" maxlength="9" name="headcount" class="ng-valid-pattern ng-dirty ng-valid ng-valid-required">
+						</li>
+						<li>
+							<span>备注信息</span>
+							<textarea placeholder="请简单描述您需要的设施和服务，如投影仪、白板等（非必填）" class="ng-valid ng-dirty"></textarea>
+						</li>
+
+						<li class="ng-scope">
+							<span>返现红包</span>
+							<div class="red-envelope none-red ng-scope">
+								<i>无红包可用</i>
+								<a>如何获取红包？</a>
+							</div>
+						</li>
+
+						<div>
+							<li>
+								<span>支付金额</span>
+								<b class="total red ng-binding">¥10000</b>
+							</li>
+							<li class="btn">
+								<a class="payment" href="confirm-queren.html">立即预订</a>
+							</li>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="right">
+				<span class="ui-frame ng-scope ng-isolate-scope">
+				<img src="http://7x00gn.com2.z0.glb.qiniucdn.com/PLACEIMG/c38a2bbc-32d9-402b-a672-801c3261010f-s1" style="opacity: 1; height: 202.5px; width: 270px; left: 0px; top: -18.25px; position: absolute;">
+				</span>
+				<h2><a href="javascript:void(0)" class="ng-binding">聚龙庄园（昌平香堂）</a></h2>
+				<h2 class="ng-binding">周一至周四  14:00到10:00(次日)</h2>
+				<span class="address ng-binding">昌平区香堂秦城村</span>
+				<span class="feature">
+					<i class="text-tag ng-binding">480平米</i>
+					<i class="text-tag ng-binding">容纳35人</i>
+					<i class="text-tag ng-binding">12米高</i>
+					<i class="text-tag ng-binding">有柱</i>
+				</span>
+				<hr>
+				<div class="price ng-scope">
+					<span>原价</span>
+					<del class="ng-binding">¥1680/天</del>
+				</div>
+				<div class="price ng-scope" ng-if="rp.ourPrice">
+					<span>现价</span>
+					<b class="ng-binding">¥1580/天</b>
+				</div>
+				<div class="price">
+					<span>支付金额</span>
+					<b class="red ng-binding">¥1580.00</b>
+				</div>
+			</div>
+		</div>
+		<!--  <div class="footer">
+			<div class="container">
+				<div style="height:50px">
+					<div class="brand">
+						<a href="/">
+							<i class="iconfont icon-fanbailogo brand-logo"></i> 
+							<i class="iconfont icon-brandname brand-name"></i>
+						</a> 
+						<a href="tel:4006196139" class="call400">400-619-6139</a>
+					</div>
+					<div class="footer-links">
+						<a href="about-us.html">关于我们</a> 
+						<a target="_blank" href="join-us.html">加入我们</a> 
+						<a href="http://d.baichanghui.com">手机WEONS</a> 
+						<a href="about-item.html">条款</a> 
+						<a style="cursor: pointer" id="hotSearch">热门搜索</a>
+					</div>
+				</div>
+				<div class="copy-right">
+						©2015 baichanghui.com
+					<br>产品投诉建议：hi@baichanghui.com
+					<br>场地商务合作：bd@baichanghui.com
+					<br>商务媒体合作：mkt@baichanghui.com
+				</div>
+				<div class="follow-us">
+					关注我们 
+					<a href="javascript:void(0)" target="_blank" class="frame iconfont ng-scope"></a> 
+					<a href="javascript:void(0)" id="weixin" class="frame iconfont ng-scope"></a> 
+					<img id="weixinQrcode" style="display:none" src="/resources/images/qrcode.jpg">
+					<br>
+					<span style="line-height:18px;display: block;margin-top:10px">
+						<a class="icp-no" href="#">北京ICP备15016240号</a>
+						<br><a class="icp-no" href="#">北京蓝线咨询有限责任公司</a>
+					</span>
+				</div>
+			</div>
+		</div>--> 
+		<iframe src="./common/footer.html" frameborder="0" style="width: 100%; height: auto;"></iframe>
+	</div>
+	<div class="time-picker" style="position: absolute; display: none; left: 565px; top: 378px; z-index: 200;">	
+		<div class="time-tabs">
+			<span class="tab-item active" style="width: 50%;">开始时间</span>
+			<span class="tab-item" style="width: 50%;">结束时间</span>
+		</div>
+		<ul class="time">
+			<li class="">7</li>
+			<li class="">8</li>
+			<li class="">9</li>
+			<li class="">10</li>
+			<li class="">11</li>
+			<li class="">12</li>
+			<li class="">13</li>
+			<li class="">14</li>
+			<li class="">15</li>
+			<li class="">16</li>
+			<li class="">17</li>
+			<li class="">18</li>
+			<li class="">19</li>
+			<li class="">20</li>
+			<li class="">21</li>
+			<li class="">22</li>
+			<li class="">23</li>
+			<li class="disabled">0</li>
+			<li class="disabled">1</li>
+			<li class="disabled">2</li>
+			<li class="disabled">3</li>
+			<li class="disabled">4</li>
+			<li class="disabled">5</li>
+			<li class="disabled">6</li>
+		</ul>
+	</div>
+	<script>
+		$(function(){
+			$(".order-create .main .left .form form li .input-time").on("click",function(){
+				$(".time-picker").show();
+			})
+			$(".time-picker .time-tabs span").on("click",function(){
+					$(this).addClass("active").siblings().removeClass('active');
+				if($(this).index()==1){
+					$(".time-picker .time").find("li").siblings().removeClass("active").eq(0).addClass("disabled");
+					$(".time-picker .time").find("li").eq(1).addClass("active");
+					if($(".time-picker .time li").hasClass("disabled")){
+						$(".time-picker .time li").eq(0).nextAll().removeClass("disabled")
+					}
+				}else{
+					$(".time-picker .time").find("li").siblings().removeClass("disabled").eq(0).addClass("active");
+					$(".time-picker .time").find("li").eq(1).removeClass("active");
+					$(".time-picker .time li").eq(16).nextAll().addClass("disabled");
+				}
+			})
+			var str,end = "null";
+			$(".time-picker .time li").on("click",function(){
+				if($(".time-picker .time-tabs span.active").text()=='开始时间'){
+					$(".time-picker .time-tabs span").eq(1).addClass("active").siblings().removeClass('active');
+					$(".time-picker .time li").eq(0).nextAll().removeClass("disabled");
+					var value = $(this).text();
+					str = value;
+				}else{
+					var value = $(this).text();
+					end = value;
+					$(".time-picker .time-tabs span").eq(0).addClass("active").siblings().removeClass('active');
+					$(".time-picker .time li").eq(16).nextAll().addClass("disabled");
+					$(".time-picker").hide();
+				}
+				if(end < 7){
+					var numer = str+":00-"+"次日"+end+":00";
+					if(end>str){
+						var numer = end+":00-"+"次日"+str+":00";
+					}
+				}else{
+					var numer = str+":00-"+end+":00";
+				} 
+				$(this).addClass("active").siblings().removeClass('active');
+				$(this).index()
+				$(".order-create .main .left .form form li .input-time").text(numer);
+			})
+		})
+	</script>
+</body>
+</html>
