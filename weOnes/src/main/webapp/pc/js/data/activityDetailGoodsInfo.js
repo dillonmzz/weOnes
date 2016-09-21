@@ -100,11 +100,12 @@ $(function() {
 					});
 
 	// 1、立即预定点击事件
-	$(".payment").on("click", function() {
+	$(".payment").on("click",function() {
 		/* 商品id :goodsId */
 		// firm-order.html
 		// 获取goodsID、获取symbol
 		var symbol = $(".activity_date_choiced").attr("data-symbol");
+		var attr_value=$(".activity_date_choiced").text();
 		if (typeof symbol === "undefined") {// 用户未选择时间段
 			alert("请选择时间段");
 		} else {
@@ -118,12 +119,14 @@ $(function() {
 				url : "/weOnes/goods/skuprice",
 				success : function(data) {
 					if (data.errorCode == "0") {
-						var goodsPrice = data.datas;//商品价格
+						var goodsPrice = data.datas;// 商品价格
 						var goodsName = $(".place-name").html();
 						var goodsImg = $(".goodsPreviewPhoto").attr("src");
 						var positions = $(".positions").html();
 						// 跳转到支付页面
-						window.location.href = "http://www.baidu.com";
+						window.location.href = "/weOnes/pc/firm-order.html?goodsId="+ goodsId+ "&goodsPrice="
+						+ goodsPrice+ "&goodsName="+ goodsName+ "&goodsImg="+ goodsImg+ "&positions="+ positions
+						+"&attr_value="+attr_value+"&symbol="+symbol;
 					}
 				},
 				error : function() {
